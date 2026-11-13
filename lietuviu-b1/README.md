@@ -16,7 +16,8 @@ Nie potrzebuje konta, subskrypcji (np. Claude Pro) ani żadnych opłat.
 | Część | Co robi |
 |---|---|
 | **Codzienna lekcja (10 min)** | powtórki słówek → nowe słowa → przypomnienie zasady → ćwiczenia z gramatyki → poprawianie zdań → utrwalenie nowych słów. Zegar pilnuje 10 minut. |
-| **Słówka** | ~250 słów B1 w tematach (zdrowie, podróże, urzędy, praca, opinie…). Ćwiczenia: wybór znaczenia, wybór słowa litewskiego, wpisywanie. Przyciski z literami ą č ę ė į š ų ū ž. |
+| **Słówka** | ~290 słów B1 (w tym 84 czasowniki) w tematach (zdrowie, podróże, urzędy, praca, opinie…). Ćwiczenia: wybór znaczenia, wybór słowa litewskiego, wpisywanie. Przyciski z literami ą č ę ė į š ų ū ž. |
+| **Trzy formy czasownika** | każdy czasownik pokazany jako *bezokolicznik · jis dabar · jis vakar* (np. **dirbti · dirba · dirbo**). Jest też ściąga, jak z tych form zbudować wszystkie czasy, i ćwiczenie „⭐ Trzy formy czasowników” (wpisujesz formę 2. i 3.). Czasowniki wracają w tym ćwiczeniu także w zwykłych powtórkach. |
 | **Gramatyka** | 17 tematów (przypadki, czasy, tryb przypuszczający i rozkazujący, czasowniki zwrotne, stopniowanie, liczebniki, imiesłowy, przyimki, spójniki, *savo*). Krótkie ściągi po polsku z tabelkami. |
 | **Poprawianie zdań** | zdania z typowymi błędami Polaków (np. *važiuoju **su** autobusu*, *aš turiu 60 metų*, *einu į gydytoją*). Do wyboru albo do samodzielnej poprawy, z wyjaśnieniem. |
 | **Powtórki rozłożone w czasie** | algorytm SM-2: co trudne, wraca szybciej; co łatwe, wraca coraz rzadziej (1 → 3 → 7 → 20+ dni). Błędna odpowiedź wraca jeszcze w tej samej lekcji. |
@@ -27,6 +28,7 @@ Nie potrzebuje konta, subskrypcji (np. Claude Pro) ani żadnych opłat.
 
 ## Jak dodać własne słowa / ćwiczenia
 W `index.html` znajdziesz na górze sekcje danych:
+- `VERB_TXT`: trzy formy czasowników, np. `dirbti dirba dirbo;`
 - `VOCAB_TXT`: linie `litewski = polski` pod nagłówkiem `#poziom Temat` (1 = B1 podstawa, 2 = B1, 3 = B1+),
 - `GRAM_RAW`: ćwiczenia z luką: `[temat, poziom, "zdanie z ___", "podpowiedź", "odpowiedź|wariant", "zła1|zła2|zła3", "tłumaczenie"]`,
 - `SENT_RAW`: zdania z błędem: `[poziom, temat, "zdanie z błędem", "poprawne|inny poprawny wariant", "inna błędna wersja", "tłumaczenie", "wyjaśnienie"]`.

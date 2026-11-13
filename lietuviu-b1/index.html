@@ -58,6 +58,7 @@ nav.tabs button{flex:1;max-width:170px;border:0;border-radius:0;background:trans
 nav.tabs button .ic{font-size:1.35rem;line-height:1}
 nav.tabs button.on{color:var(--brand);font-weight:700}
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.forms{display:inline-block;font-size:.95rem;font-weight:600;color:var(--brand);background:var(--brand-soft);padding:2px 10px;border-radius:8px}
 .tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px}
 .tile .v{font-size:1.6rem;font-weight:800;line-height:1.1}
 .tile .l{font-size:.8rem;color:var(--muted)}
@@ -236,6 +237,48 @@ niekada = nigdy
 visada = zawsze
 anksti = wcześnie
 vėlai = późno
+#1 Najważniejsze czasowniki
+eiti = iść
+važiuoti = jechać
+gyventi = mieszkać, żyć
+dirbti = pracować
+kalbėti = mówić
+rašyti = pisać
+skaityti = czytać
+valgyti = jeść
+gerti = pić
+žinoti = wiedzieć
+daryti = robić
+sakyti = mówić, powiedzieć
+duoti = dać
+imti = brać
+gauti = dostać
+matyti = widzieć
+girdėti = słyszeć
+mokytis = uczyć się
+mėgti = lubić
+mylėti = kochać
+galvoti = myśleć
+#2 Czasowniki codzienne
+ieškoti = szukać
+rasti = znaleźć
+pradėti = zacząć
+baigti = skończyć
+atidaryti = otworzyć
+uždaryti = zamknąć
+sėdėti = siedzieć
+stovėti = stać
+gulėti = leżeć
+kainuoti = kosztować
+siųsti = wysyłać
+nešti = nieść
+vežti = wieźć
+padėti = pomóc
+mokyti = uczyć (kogoś)
+likti = zostać
+tapti = stać się
+augti = rosnąć
+nuspręsti = zdecydować
 #2 Spotkania i święta
 susitikimas = spotkanie
 susitikti = spotkać się
@@ -411,9 +454,66 @@ pasirašyti = podpisać
 `;
 
 /* =====================================================================
+   DANE: TRZY FORMY CZASOWNIKÓW
+   bezokolicznik, 3. os. czasu teraźniejszego, 3. os. czasu przeszłego
+   ===================================================================== */
+const VERB_TXT = `
+eiti eina ėjo; važiuoti važiuoja važiavo; gyventi gyvena gyveno; dirbti dirba dirbo; kalbėti kalba kalbėjo;
+rašyti rašo rašė; skaityti skaito skaitė; valgyti valgo valgė; gerti geria gėrė; žinoti žino žinojo;
+daryti daro darė; sakyti sako sakė; duoti duoda davė; imti ima ėmė; gauti gauna gavo; matyti mato matė;
+girdėti girdi girdėjo; mokytis mokosi mokėsi; mėgti mėgsta mėgo; mylėti myli mylėjo; galvoti galvoja galvojo;
+ieškoti ieško ieškojo; rasti randa rado; pradėti pradeda pradėjo; baigti baigia baigė; atidaryti atidaro atidarė;
+uždaryti uždaro uždarė; sėdėti sėdi sėdėjo; stovėti stovi stovėjo; gulėti guli gulėjo; kainuoti kainuoja kainavo;
+siųsti siunčia siuntė; nešti neša nešė; vežti veža vežė; padėti padeda padėjo; mokyti moko mokė; likti lieka liko;
+tapti tampa tapo; augti auga augo; nuspręsti nusprendžia nusprendė;
+mokėti moka mokėjo; pirkti perka pirko; parduoti parduoda pardavė; vaikščioti vaikščioja vaikščiojo;
+maudytis maudosi maudėsi; virti verda virė; susitikti susitinka susitiko; pakviesti pakviečia pakvietė;
+sveikinti sveikina sveikino; atsiprašyti atsiprašo atsiprašė; sutikti sutinka sutiko; ginčytis ginčijasi ginčijosi;
+paaiškinti paaiškina paaiškino; suprasti supranta suprato; pamiršti pamiršta pamiršo; prisiminti prisimena prisiminė;
+tikėtis tikisi tikėjosi; bijoti bijo bijojo; patikti patinka patiko; skubėti skuba skubėjo; vėluoti vėluoja vėlavo;
+laukti laukia laukė; grįžti grįžta grįžo; išvykti išvyksta išvyko; atvykti atvyksta atvyko; persėsti persėda persėdo;
+matuotis matuojasi matavosi; karščiuoti karščiuoja karščiavo; peršalti peršąla peršalo; sveikti sveiksta sveiko;
+ilsėtis ilsisi ilsėjosi; keltis keliasi kėlėsi; praustis prausiasi prausėsi; rengtis rengiasi rengėsi;
+išsinuomoti išsinuomoja išsinuomojo; tvarkyti tvarko tvarkė; rūšiuoti rūšiuoja rūšiavo; pasiekti pasiekia pasiekė;
+palyginti palygina palygino; priklausyti priklauso priklausė; sutaupyti sutaupo sutaupė; skolinti skolina skolino;
+pildyti pildo pildė; pasirašyti pasirašo pasirašė; skaudėti skauda skaudėjo; atrodyti atrodo atrodė;
+būti yra buvo; atvažiuoti atvažiuoja atvažiavo; ateiti ateina atėjo; paskambinti paskambina paskambino;
+žaisti žaidžia žaidė; galėti gali galėjo; norėti nori norėjo; atsisėsti atsisėda atsisėdo; palaukti palaukia palaukė;
+domėtis domisi domėjosi; džiaugtis džiaugiasi džiaugėsi; jaustis jaučiasi jautėsi; apsirengti apsirengia apsirengė;
+bėgti bėga bėgo; parašyti parašo parašė; pavargti pavargsta pavargo; perskaityti perskaito perskaitė
+`;
+const VERBS={};
+VERB_TXT.split(";").forEach(x=>{const f=x.trim().split(/\s+/); if(f.length===3) VERBS[f[0]]={inf:f[0],pres:f[1],past:f[2]};});
+VERBS["skauda"]=VERBS["skaudėti"]; VERBS["atrodo"]=VERBS["atrodyti"];
+function vf(word){ const v=VERBS[word]; return v?`${v.inf}, ${v.pres}, ${v.past}`:""; }
+function vfHTML(word){ const v=VERBS[word]; return v?`<span class="forms">${esc(v.inf)} · ${esc(v.pres)} · ${esc(v.past)}</span>`:""; }
+
+/* =====================================================================
    DANE: GRAMATYKA – tematy i ściągi
    ===================================================================== */
 const TOPICS = {
+  forms:{name:"⭐ Trzy formy czasownika", short:"Każdy czasownik znasz po 3 formach: <b>bezokolicznik · jis dabar · jis vakar</b>, np. <b>dirbti · dirba · dirbo</b>. Z nich zbudujesz wszystkie czasy.",
+   sheet:`<p>Ucz się czasownika zawsze w trzech formach, np. <b>dirbti · dirba · dirbo</b> (pracować · pracuje · pracował).</p>
+   <table><tr><th>Forma</th><th>Co z niej robisz</th></tr>
+   <tr><td><b>1. bezokolicznik</b><br>dirb<b>ti</b></td><td>czas przyszły: dirb<b>siu</b>, dirb<b>s</b><br>przeszły wielokrotny: dirb<b>davau</b><br>tryb „-bym”: dirb<b>čiau</b>, dirb<b>tų</b><br>rozkazujący: dirb<b>k</b>, dirb<b>kite</b></td></tr>
+   <tr><td><b>2. teraźniejszy (jis)</b><br>dirb<b>a</b></td><td>czas teraźniejszy (aš, tu, mes…)<br>imiesłów: dirb<b>antis</b></td></tr>
+   <tr><td><b>3. przeszły (jis)</b><br>dirb<b>o</b></td><td>czas przeszły (aš, tu, mes…)<br>imiesłów: dirb<b>ęs</b></td></tr></table>
+   <h3>Czas teraźniejszy – 3 typy (patrz na formę 2.)</h3>
+   <table><tr><th></th><th>-a: dirba</th><th>-ia: laukia</th><th>-o: mato</th><th>-i: nori</th></tr>
+   <tr><td>aš</td><td>dirb<b>u</b></td><td>lauk<b>iu</b></td><td>mat<b>au</b></td><td>nor<b>iu</b></td></tr>
+   <tr><td>tu</td><td>dirb<b>i</b></td><td>lauk<b>i</b></td><td>mat<b>ai</b></td><td>nor<b>i</b></td></tr>
+   <tr><td>jis/ji/jie</td><td>dirb<b>a</b></td><td>lauk<b>ia</b></td><td>mat<b>o</b></td><td>nor<b>i</b></td></tr>
+   <tr><td>mes</td><td>dirb<b>ame</b></td><td>lauk<b>iame</b></td><td>mat<b>ome</b></td><td>nor<b>ime</b></td></tr>
+   <tr><td>jūs</td><td>dirb<b>ate</b></td><td>lauk<b>iate</b></td><td>mat<b>ote</b></td><td>nor<b>ite</b></td></tr></table>
+   <h3>Czas przeszły – 2 typy (patrz na formę 3.)</h3>
+   <table><tr><th></th><th>-o: dirbo</th><th>-ė: matė</th></tr>
+   <tr><td>aš</td><td>dirb<b>au</b></td><td>mač<b>iau</b></td></tr>
+   <tr><td>tu</td><td>dirb<b>ai</b></td><td>mat<b>ei</b></td></tr>
+   <tr><td>jis/ji/jie</td><td>dirb<b>o</b></td><td>mat<b>ė</b></td></tr>
+   <tr><td>mes</td><td>dirb<b>ome</b></td><td>mat<b>ėme</b></td></tr>
+   <tr><td>jūs</td><td>dirb<b>ote</b></td><td>mat<b>ėte</b></td></tr></table>
+   <p>⚠️ Przed <b>-iau</b>: t → <b>č</b> (matė → mačiau), d → <b>dž</b> (pradėjo → pradėjau, ale: sėdėjo → sėdėjau; vedė → vedžiau).</p>
+   <p>Dlaczego to ważne? Formy 2. i 3. są często nieregularne i nie da się ich zgadnąć: <i>pirkti · <b>perka</b> · pirko</i>, <i>rasti · <b>randa</b> · rado</i>, <i>duoti · duoda · <b>davė</b></i>, <i>eiti · eina · <b>ėjo</b></i>.</p>`},
   kilm:{name:"Kilmininkas (dopełniacz)", short:"Kogo? czego? – po przeczeniu (<b>neturiu laiko</b>), po ilości (<b>kilogramas obuolių</b>), po liczbach 10–20 i dziesiątkach (<b>dešimt knygų</b>), po <b>laukti, bijoti, reikėti, ieškoti, mokytis</b> i przyimkach <b>iš, prie, nuo, iki, be, ant, netoli</b>.",
    sheet:`<p>Pytania: <b>ko?</b> (kogo? czego?)</p>
    <p><b>Kiedy?</b> po przeczeniu (<i>neturiu laiko, nėra duonos</i>), po słowach ilości (<i>daug žmonių, butelis vandens</i>), po liczbach 10–20 i pełnych dziesiątkach, po czasownikach <i>laukti, bijoti, reikėti, ieškoti, mokytis, norėti (czegoś)</i>, po przyimkach <i>iš, nuo, iki, prie, ant, be, dėl, netoli, po</i> (= po czymś: <i>po pietų</i>).</p>
@@ -785,6 +885,7 @@ function topicScore(t){ const s=S.topicStats[t]||{ok:0,bad:0}; const n=s.ok+s.ba
 
 function wordMode(id, forceMC){
   const c=S.items[id]; const reps=c?c.reps:0;
+  if(!forceMC && VERBS[BYID[id].lt] && BYID[id].lt===VERBS[BYID[id].lt].inf && reps>=1 && Math.random()<0.45) return "forms";
   const pT=clamp(0.05+(S.level-1)*0.3+Math.min(reps,4)*0.1,0.05,0.8);
   if(!forceMC && Math.random()<pT) return "type";
   return Math.random()<0.45+Math.min(reps,4)*0.1?"pl2lt":"lt2pl";
@@ -855,7 +956,7 @@ function buildDaily(){
   }
   if(g.items.length){ q.push({k:"rule",t:g.focus}); g.items.forEach(x=>q.push({k:"gram",id:x.id,mode:gramMode(x.id)})); }
   sents.forEach(s=>q.push({k:"sent",id:s.id,mode:sentMode()}));
-  shuffle(news).forEach(w=>q.push({k:"word",id:w.id,mode:S.level>2.2?"type":"pl2lt",final:true}));
+  shuffle(news).forEach(w=>q.push({k:"word",id:w.id,mode:isVerb(w)?"forms":(S.level>2.2?"type":"pl2lt"),final:true}));
   due.slice(6).forEach(w=>q.push({k:"word",id:w.id,mode:wordMode(w.id)}));
   return {queue:q, focus:g.focus, newIds:news.map(w=>w.id), daily:true};
 }
@@ -866,6 +967,13 @@ function buildExtra(){
   return {queue:q, extra:true};
 }
 function buildTopic(t){ const g=pickGrammar(8,t); const q=[{k:"rule",t}]; g.items.forEach(x=>q.push({k:"gram",id:x.id,mode:gramMode(x.id)})); SENT.filter(s=>s.t===t).slice(0,3).forEach(s=>q.push({k:"sent",id:s.id,mode:sentMode()})); return {queue:q, extra:true}; }
+function isVerb(w){ return VERBS[w.lt] && VERBS[w.lt].inf===w.lt; }
+function buildForms(){
+  const ml=maxLvl(); let vs=WORDS.filter(w=>isVerb(w)&&S.items[w.id]);
+  if(vs.length<10) vs=vs.concat(shuffle(WORDS.filter(w=>isVerb(w)&&!S.items[w.id]&&w.l<=ml)).slice(0,10-vs.length));
+  vs=vs.sort((a,b)=>(S.items[a.id]?.ef||2.5)-(S.items[b.id]?.ef||2.5)).slice(0,20);
+  return {queue:[{k:"rule",t:"forms"},...shuffle(vs).slice(0,12).map(w=>({k:"word",id:w.id,mode:"forms"}))], extra:true};
+}
 function buildHard(){ const ids=WORDS.filter(w=>isHard(w.id)).map(w=>w.id); return {queue:shuffle(ids).slice(0,15).map(id=>({k:"word",id,mode:wordMode(id)})), extra:true}; }
 
 /* =====================================================================
@@ -908,7 +1016,8 @@ function renderTask(){
   const it=BYID[t.id];
   if(t.k==="intro"){
     body=`<div class="qkind">Nowe słowo · ${esc(it.th)}</div>
-      <div class="wordcard"><div class="lt">${esc(it.lt)} ${spkBtn(it.lt)}</div><div class="pl">${esc(it.pl)}</div></div>
+      <div class="wordcard"><div class="lt">${esc(it.lt)} ${spkBtn(it.lt)}</div><div class="pl">${esc(it.pl)}</div>
+      ${VERBS[it.lt]?`<div style="margin-top:10px">${vfHTML(it.lt)}</div><div class="small muted">bezokolicznik · on teraz · on wczoraj</div>`:""}</div>
       <p class="muted small center">Powiedz słowo na głos 2 razy. Za chwilę sprawdzimy, czy pamiętasz.</p>
       <div class="row"><button id="known" class="btn-ghost">Znam je dobrze</button><button class="btn-primary" id="next">Dalej ⏎</button></div>`;
   } else if(t.k==="rule"){
@@ -923,6 +1032,10 @@ function renderTask(){
     } else if(t.mode==="pl2lt"){
       t.opts=t.opts||shuffle([it.lt,...wordDistractors(it,"lt")]);
       body=`<div class="qkind">Jak jest po litewsku?</div><div class="prompt">${esc(it.pl)}</div>${choicesHTML(t.opts)}`;
+    } else if(t.mode==="forms"){
+      const v=VERBS[it.lt];
+      body=`<div class="qkind">Trzy formy czasownika</div><div class="prompt">${esc(v.inf)} <span class="muted">· … · …</span> ${spkBtn(v.inf)}</div>
+        <p class="muted">${esc(it.pl)} — wpisz: <b>jis dabar</b> (teraz), <b>jis vakar</b> (wczoraj), np. <i>dirba, dirbo</i></p>${typeHTML()}`;
     } else {
       body=`<div class="qkind">Napisz po litewsku</div><div class="prompt">${esc(it.pl)}</div>
         <p class="muted small">Pierwsza litera: <b>${esc(it.lt[0])}</b> · liter: ${it.lt.replace(/ /g,"").length}</p>${typeHTML()}`;
@@ -931,7 +1044,7 @@ function renderTask(){
     const q=esc(it.q).replace("___",`<span class="blank">${t.mode==="mc"?"?":"…"}</span>`);
     const hint = TOPICS[it.t] ? `<details style="border:0"><summary class="small muted">Podpowiedź z ściągi</summary><p class="small">${TOPICS[it.t].short}</p></details>`:"";
     body=`<div class="qkind">Gramatyka · ${esc(TOPICS[it.t].name)}</div>
-      <div class="prompt sm">${q}</div><p class="muted small">(${esc(it.h)}) — ${esc(it.pl)}</p>${hint}`;
+      <div class="prompt sm">${q}</div><p class="muted small">(${esc(it.h)}) — ${esc(it.pl)}</p>${VERBS[it.h.split(",")[0]]&&S.level<2.4?`<p class="small">${vfHTML(it.h.split(",")[0])}</p>`:""}${hint}`;
     if(t.mode==="mc"){ t.opts=t.opts||shuffle([it.a[0],...it.d]); body+=choicesHTML(t.opts); }
     else body+=typeHTML();
   } else if(t.k==="sent"){
@@ -967,7 +1080,7 @@ function bindTask(){
 
 function correctAnswers(t){
   const it=BYID[t.id];
-  if(t.k==="word") return t.mode==="lt2pl"?[it.pl]:[it.lt];
+  if(t.k==="word"){ if(t.mode==="forms"){const v=VERBS[it.lt]; return [v.pres+", "+v.past];} return t.mode==="lt2pl"?[it.pl]:[it.lt]; }
   if(t.k==="gram") return it.a;
   if(t.k==="sent") return t.mode==="mc"?[it.good[0]]:it.good;
   return [];
@@ -977,7 +1090,7 @@ function judge(t,given){
   const g=norm(given);
   if(!g) return {ok:false,near:false};
   if(ans.some(a=>norm(a)===g)) return {ok:true,near:false};
-  if(t.mode==="type"){
+  if(t.mode==="type"||t.mode==="forms"){
     if(ans.some(a=>strip(norm(a))===strip(g))) return {ok:!S.settings.strict,near:true};
   }
   return {ok:false,near:false};
@@ -987,7 +1100,7 @@ function answer(given, btn, dunno){
   if(SES.answered) return; SES.answered=true;
   const t=curTask(), it=BYID[t.id];
   const r=dunno?{ok:false,near:false}:judge(t,given);
-  const typed=t.mode==="type";
+  const typed=t.mode==="type"||t.mode==="forms";
   let q = r.ok ? (r.near?3:(typed?5:4)) : 1;
   // zaznacz odpowiedzi
   document.querySelectorAll("[data-choice]").forEach(b=>{ b.disabled=true; const right=correctAnswers(t).some(a=>norm(a)===norm(b.dataset.choice)); if(right) b.classList.add("right"); else if(b===btn) b.classList.add("wrong"); });
@@ -999,7 +1112,7 @@ function answer(given, btn, dunno){
   let expl="";
   if(t.k==="gram") expl=`<div class="ex small">${TOPICS[it.t].short}</div>`;
   if(t.k==="sent") expl=`<div class="ex small">${it.ex}</div>`;
-  if(t.k==="word") expl=`<div class="ex">${esc(it.lt)} = ${esc(it.pl)} ${spkBtn(it.lt)}</div>`;
+  if(t.k==="word") expl=`<div class="ex">${esc(it.lt)} = ${esc(it.pl)} ${spkBtn(it.lt)}</div>${VERBS[it.lt]?`<div class="ex">${vfHTML(it.lt)}</div>`:""}`;
   let cls, head;
   if(r.ok && !r.near){ cls="ok"; head=pick(["✅ Dobrze!","✅ Brawo!","✅ Świetnie!","✅ Tak jest!","✅ Puikiai!"],1)[0]; }
   else if(r.near){ cls="near"; head=r.ok?"🟡 Prawie! Uważaj na litewskie znaki:":"🟡 Brakuje litewskich znaków:"; }
@@ -1019,7 +1132,7 @@ function answer(given, btn, dunno){
 }
 function noteText(t,given){
   const it=BYID[t.id];
-  if(t.k==="word") return `${it.lt} = ${it.pl}`;
+  if(t.k==="word") return VERBS[it.lt]?`${vf(it.lt)} = ${it.pl}`:`${it.lt} = ${it.pl}`;
   if(t.k==="gram") return `${it.q.replace("___",it.a[0])} (${it.pl}) — ${TOPICS[it.t].name}`;
   return `✗ ${it.bad}\n✓ ${it.good[0]} — ${it.ex.replace(/<[^>]+>/g,"")}`;
 }
@@ -1084,7 +1197,7 @@ function endSession(){
       <div class="tile"><div class="v">${levelName(S.level)}</div><div class="l">poziom ${lvlCh>0.01?"⬆️":lvlCh<-0.01?"⬇️":"="}</div></div>
     </div>
     ${wrong.length?`<div class="card"><h2>Do zapamiętania</h2><ul class="list">${wrong.map(r=>{const it=BYID[r.t.id];
-      const a = r.t.k==="word"?`${esc(it.lt)} = ${esc(it.pl)}`: r.t.k==="gram"? esc(it.q.replace("___",it.a[0])) : esc(it.good[0]);
+      const a = r.t.k==="word"?`${esc(VERBS[it.lt]?vf(it.lt):it.lt)} = ${esc(it.pl)}`: r.t.k==="gram"? esc(it.q.replace("___",it.a[0])) : esc(it.good[0]);
       return `<li><span>${a}</span></li>`;}).join("")}</ul>
       <p class="small muted">Te elementy wrócą jutro w powtórkach.</p></div>`:""}
     ${s.daily && left>60?`<div class="card"><p>Zostało jeszcze ok. ${Math.round(left/60)} min. Chcesz dodatkowo powtórzyć najtrudniejsze rzeczy?</p><button class="btn-big" id="more">➕ Dodatkowa powtórka</button></div>`:""}
@@ -1140,11 +1253,13 @@ function renderHome(){
     </div>
     <div class="card"><h2>Szybkie ćwiczenia</h2>
       <div class="row"><button id="hard">😓 Trudne słowa (${WORDS.filter(w=>isHard(w.id)).length})</button><button id="extra">🔁 Najsłabsze rzeczy</button></div>
+      <button id="vforms" style="width:100%;margin-top:10px">⭐ Trzy formy czasowników</button>
     </div>
     <div class="card small muted">💡 Wskazówka: ${pick(TIPS,1)[0]}</div>`;
   $("#start").onclick=()=>startSession(buildDaily());
   $("#hard").onclick=()=>startSession(buildHard());
   $("#extra").onclick=()=>startSession(buildExtra());
+  $("#vforms").onclick=()=>startSession(buildForms());
 }
 const TIPS=["Czytaj słowa na głos – mówienie wzmacnia pamięć.","Lepiej 10 minut codziennie niż godzina raz w tygodniu.","Błędy są dobre – program wraca do nich, aż wejdą do głowy.","Gdy coś cię zaskoczy, zapisz to w Notatniku własnymi słowami.","Zajrzyj czasem do zakładki Gramatyka – ściągi są krótkie.","Polskie przypadki bardzo pomagają: kilmininkas ≈ dopełniacz, naudininkas ≈ celownik.","Po litewsku „w mieście” to jedno słowo: mieste – bez przyimka!","Litewskie znaki możesz wpisywać przyciskami pod polem odpowiedzi."];
 
@@ -1157,7 +1272,7 @@ function renderNotes(){
       <button class="btn-primary" id="addn" style="margin-top:8px">Zapisz notatkę</button>
       <ul class="list" style="margin-top:8px">${S.notes.map(n=>`<li><div><div style="white-space:pre-wrap">${esc(n.text)}</div><div class="small muted">${plDate(n.d)}</div></div><button class="btn-ghost btn-sm" data-del="${n.id}" aria-label="Usuń">🗑</button></li>`).join("")||`<li class="muted">Brak notatek. Możesz też dodawać je przyciskiem „📒 Do notatnika” podczas lekcji.</li>`}</ul></div>
     <div class="card"><h2>😓 Trudne słowa</h2>
-      ${hard.length?`<ul class="list">${hard.map(w=>`<li><span><b>${esc(w.lt)}</b> ${spkBtn(w.lt)}</span><span class="muted">${esc(w.pl)}</span></li>`).join("")}</ul><button class="btn-primary" id="phard" style="margin-top:8px">Ćwicz trudne słowa</button>`:`<p class="muted">Na razie brak – słowa, które sprawiają kłopot, pojawią się tutaj same.</p>`}</div>
+      ${hard.length?`<ul class="list">${hard.map(w=>`<li><span><b>${esc(VERBS[w.lt]?vf(w.lt):w.lt)}</b> ${spkBtn(w.lt)}</span><span class="muted">${esc(w.pl)}</span></li>`).join("")}</ul><button class="btn-primary" id="phard" style="margin-top:8px">Ćwicz trudne słowa</button>`:`<p class="muted">Na razie brak – słowa, które sprawiają kłopot, pojawią się tutaj same.</p>`}</div>
     <div class="card"><h2>❌ Ostatnie błędy</h2>
       ${S.mistakes.length?`<ul class="list">${S.mistakes.slice(0,25).map(m=>{const it=BYID[m.id]; if(!it) return ""; let a;
         if(m.k==="word") a=`<b>${esc(it.lt)}</b> = ${esc(it.pl)}`; else if(m.k==="gram") a=esc(it.q.replace("___",it.a[0])); else a=esc(it.good[0]);
@@ -1172,7 +1287,7 @@ function renderNotes(){
   const lab={learning:["uczę się","warn"],known:["znam","ok"],mastered:["opanowane","ok"]};
   const draw=()=>{ const f=strip(norm($("#srch").value));
     const list=seen.filter(w=>!f||strip(norm(w.lt)).includes(f)||strip(norm(w.pl)).includes(f));
-    $("#wl").innerHTML=list.map(w=>{const st=lab[wordStatus(w.id)]; return `<li><span><b>${esc(w.lt)}</b> <span class="muted">– ${esc(w.pl)}</span></span><span class="pill ${st[1]}">${st[0]}</span></li>`;}).join("")||`<li class="muted">Brak słów.</li>`; };
+    $("#wl").innerHTML=list.map(w=>{const st=lab[wordStatus(w.id)]; return `<li><span><b>${esc(w.lt)}</b> <span class="muted">– ${esc(w.pl)}</span>${VERBS[w.lt]?`<br>${vfHTML(w.lt)}`:""}</span><span class="pill ${st[1]}">${st[0]}</span></li>`;}).join("")||`<li class="muted">Brak słów.</li>`; };
   $("#srch").oninput=draw; draw();
 }
 
@@ -1183,7 +1298,7 @@ function renderGrammar(){
     ${Object.entries(TOPICS).map(([k,tp])=>{const s=S.topicStats[k]||{ok:0,bad:0}; const a=accBar(s.ok,s.bad);
       return `<details><summary>${esc(tp.name)} ${a.n?`<span class="pill ${a.p>=80?"ok":a.p>=60?"warn":"bad"}">${a.p}%</span>`:""}</summary>
       <div class="sheet">${tp.sheet}</div><button class="btn-primary btn-sm" data-topic="${k}" style="margin:6px 0">Ćwicz ten temat</button></details>`;}).join("")}</div>`;
-  document.querySelectorAll("[data-topic]").forEach(b=>b.onclick=()=>startSession(buildTopic(b.dataset.topic)));
+  document.querySelectorAll("[data-topic]").forEach(b=>b.onclick=()=>startSession(b.dataset.topic==="forms"?buildForms():buildTopic(b.dataset.topic)));
 }
 
 function renderStats(){
