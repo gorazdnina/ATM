@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lietuvių B1 – 10 minut dziennie</title>
+<title>Lietuvių B2 – 10 minut dziennie</title>
 <meta name="theme-color" content="#2f6b4f">
 <style>
 :root{
@@ -116,8 +116,8 @@ svg text{fill:var(--muted);font-size:10px}
 </head>
 <body>
 <header>
-  <div class="logo"><span class="flag" aria-hidden="true"></span> Lietuvių B1</div>
-  <div class="lvl" id="lvlBadge">B1</div>
+  <div class="logo"><span class="flag" aria-hidden="true"></span> Lietuvių B2</div>
+  <div class="lvl" id="lvlBadge">B2</div>
 </header>
 <main id="view"></main>
 <nav class="tabs" id="tabs">
@@ -132,7 +132,7 @@ svg text{fill:var(--muted);font-size:10px}
 "use strict";
 /* =====================================================================
    DANE: SŁOWNICTWO  (#poziom Temat, potem linie "litewski = polski")
-   poziom 1 = B1 podstawa, 2 = B1, 3 = B1+
+   poziom 1 = powtórka B1, 2 = B2, 3 = B2+
    ===================================================================== */
 const VOCAB_TXT = `
 #1 Zdrowie
@@ -259,7 +259,7 @@ mokytis = uczyć się
 mėgti = lubić
 mylėti = kochać
 galvoti = myśleć
-#2 Czasowniki codzienne
+#1 Czasowniki codzienne
 ieškoti = szukać
 rasti = znaleźć
 pradėti = zacząć
@@ -279,7 +279,7 @@ likti = zostać
 tapti = stać się
 augti = rosnąć
 nuspręsti = zdecydować
-#2 Spotkania i święta
+#1 Spotkania i święta
 susitikimas = spotkanie
 susitikti = spotkać się
 pakviesti = zaprosić
@@ -292,7 +292,7 @@ Velykos = Wielkanoc
 vestuvės = wesele, ślub
 sveikinti = gratulować, pozdrawiać
 atsiprašyti = przeprosić
-#2 Uczucia i opinie
+#1 Uczucia i opinie
 laimingas = szczęśliwy
 liūdnas = smutny
 pavargęs = zmęczony
@@ -310,7 +310,7 @@ prisiminti = przypomnieć sobie
 tikėtis = spodziewać się, mieć nadzieję
 bijoti = bać się
 patikti = podobać się
-#2 W mieście
+#1 W mieście
 skubėti = spieszyć się
 vėluoti = spóźniać się
 laukti = czekać
@@ -331,7 +331,7 @@ aikštė = plac
 bažnyčia = kościół
 muziejus = muzeum
 paštas = poczta
-#2 Pieniądze i ubrania
+#1 Pieniądze i ubrania
 sąskaita = rachunek, konto
 grąža = reszta (pieniędzy)
 nuolaida = zniżka, rabat
@@ -342,7 +342,7 @@ striukė = kurtka
 kepurė = czapka
 pirštinės = rękawiczki
 matuotis = przymierzać
-#2 U lekarza
+#1 U lekarza
 receptas = recepta, przepis
 karščiuoti = mieć gorączkę
 peršalti = przeziębić się
@@ -353,7 +353,7 @@ dantis = ząb
 gerklė = gardło
 nugara = plecy
 sveikti = zdrowieć
-#2 Codzienność w domu
+#1 Codzienność w domu
 poilsis = odpoczynek
 ilsėtis = odpoczywać
 keltis = wstawać
@@ -368,7 +368,7 @@ skalbimo mašina = pralka
 indai = naczynia
 tvarkyti = sprzątać, porządkować
 šiukšlės = śmieci
-#3 Społeczeństwo i środowisko
+#2 Społeczeństwo i środowisko
 aplinka = środowisko, otoczenie
 gamta = przyroda
 tarša = zanieczyszczenie
@@ -383,7 +383,7 @@ galimybė = możliwość
 sprendimas = decyzja, rozwiązanie
 priežastis = przyczyna
 pasekmė = skutek
-#3 Praca i nauka
+#2 Praca i nauka
 tikslas = cel
 pasiekti = osiągnąć
 patirtis = doświadczenie
@@ -401,7 +401,7 @@ atsakomybė = odpowiedzialność
 pensija = emerytura
 pensininkas = emeryt
 savanoris = wolontariusz
-#3 Kultura i media
+#2 Kultura i media
 renginys = wydarzenie, impreza
 paroda = wystawa
 spektaklis = spektakl, przedstawienie
@@ -417,7 +417,7 @@ užsienietis = cudzoziemiec
 kalba = język, mowa
 tarmė = gwara
 vertėjas = tłumacz
-#3 Słowa do opinii
+#2 Słowa do opinii
 palyginti = porównać
 skirtumas = różnica
 panašus = podobny
@@ -440,7 +440,7 @@ atrodo = wydaje się, wygląda
 priklausyti = zależeć, należeć
 naudingas = pożyteczny
 kenksmingas = szkodliwy
-#3 Urzędy i finanse
+#2 Urzędy i finanse
 išlaidos = wydatki
 sutaupyti = zaoszczędzić
 skolinti = pożyczać
@@ -451,6 +451,97 @@ prašymas = wniosek, prośba
 pildyti = wypełniać
 parašas = podpis
 pasirašyti = podpisać
+#2 Zdrowie i styl życia
+gyvensena = styl życia
+mityba = odżywianie
+sveikatos priežiūra = opieka zdrowotna
+gydymas = leczenie
+simptomas = objaw
+nuovargis = zmęczenie
+įprotis = nawyk
+atsikratyti = pozbyć się (+ kilm.)
+sustiprinti = wzmocnić
+pasveikti = wyzdrowieć
+#2 Emocje i relacje
+pasitikėjimas = zaufanie
+pasitikėti = ufać (+ įnag.)
+nusivylimas = rozczarowanie
+nusivilti = rozczarować się (+ įnag.)
+pavydas = zazdrość
+dėkingas = wdzięczny
+atlaidus = wyrozumiały, pobłażliwy
+užjausti = współczuć
+susitaikyti = pogodzić się
+įsižeisti = obrazić się
+santykiai = relacje, stosunki
+bendrauti = komunikować się, utrzymywać kontakt
+#2 Praca i gospodarka
+nedarbas = bezrobocie
+bedarbis = bezrobotny
+pajamos = dochody
+biudžetas = budżet
+investuoti = inwestować
+sutartis = umowa
+derybos = negocjacje
+įdarbinti = zatrudnić
+konkurencija = konkurencja
+pelnas = zysk
+nuostolis = strata
+#2 Dyskusja i argumentacja
+teigti = twierdzić
+abejoti = wątpić (+ įnag.)
+įrodyti = udowodnić
+įtikinti = przekonać
+prieštarauti = sprzeciwiać się
+pabrėžti = podkreślić
+atsižvelgiant į = biorąc pod uwagę
+pirmiausia = przede wszystkim
+apskritai = ogólnie
+vadinasi = czyli, a więc
+kita vertus = z drugiej strony
+nepaisant = pomimo (+ kilm.)
+#3 Społeczeństwo i polityka
+pilietis = obywatel
+pilietybė = obywatelstwo
+vyriausybė = rząd
+savivaldybė = samorząd, urząd miasta
+korupcija = korupcja
+lygybė = równość
+tautinė mažuma = mniejszość narodowa
+emigracija = emigracja
+#3 Nauka i technologie
+mokslas = nauka
+tyrimas = badanie
+išradimas = wynalazek
+dirbtinis intelektas = sztuczna inteligencja
+duomenys = dane
+prietaisas = urządzenie
+programėlė = aplikacja
+atnaujinti = zaktualizować
+saugumas = bezpieczeństwo
+pažanga = postęp
+#3 Środowisko
+klimato kaita = zmiana klimatu
+atsinaujinanti energija = energia odnawialna
+tvarus = zrównoważony
+vartojimas = konsumpcja
+atliekos = odpady
+perdirbti = przetworzyć (recykling)
+saugoti = chronić
+sausra = susza
+potvynis = powódź
+#3 Wyrażenia B2
+iš esmės = w zasadzie, zasadniczo
+be abejo = bez wątpienia
+kaip bebūtų = tak czy inaczej
+priešingai = przeciwnie
+juolab = tym bardziej
+vis labiau = coraz bardziej
+laikui bėgant = z biegiem czasu
+turėti omenyje = mieć na myśli
+atkreipti dėmesį = zwrócić uwagę
+daryti įtaką = wywierać wpływ
+kelti klausimą = poruszyć kwestię
 `;
 
 /* =====================================================================
@@ -480,7 +571,14 @@ pildyti pildo pildė; pasirašyti pasirašo pasirašė; skaudėti skauda skaudė
 būti yra buvo; atvažiuoti atvažiuoja atvažiavo; ateiti ateina atėjo; paskambinti paskambina paskambino;
 žaisti žaidžia žaidė; galėti gali galėjo; norėti nori norėjo; atsisėsti atsisėda atsisėdo; palaukti palaukia palaukė;
 domėtis domisi domėjosi; džiaugtis džiaugiasi džiaugėsi; jaustis jaučiasi jautėsi; apsirengti apsirengia apsirengė;
-bėgti bėga bėgo; parašyti parašo parašė; pavargti pavargsta pavargo; perskaityti perskaito perskaitė
+bėgti bėga bėgo; parašyti parašo parašė; pavargti pavargsta pavargo; perskaityti perskaito perskaitė;
+atsikratyti atsikrato atsikratė; sustiprinti sustiprina sustiprino; pasveikti pasveiksta pasveiko; pasitikėti pasitiki pasitikėjo;
+nusivilti nusivilia nusivylė; užjausti užjaučia užjautė; susitaikyti susitaiko susitaikė; įsižeisti įsižeidžia įsižeidė;
+bendrauti bendrauja bendravo; investuoti investuoja investavo; įdarbinti įdarbina įdarbino; teigti teigia teigė;
+abejoti abejoja abejojo; įrodyti įrodo įrodė; įtikinti įtikina įtikino; prieštarauti prieštarauja prieštaravo;
+pabrėžti pabrėžia pabrėžė; atnaujinti atnaujina atnaujino; perdirbti perdirba perdirbo; saugoti saugo saugojo;
+statyti stato statė; pastatyti pastato pastatė; išversti išverčia išvertė; sodinti sodina sodino; sutvarkyti sutvarko sutvarkė;
+pasveikinti pasveikina pasveikino; lyti lyja lijo; tekėti teka tekėjo; šypsotis šypsosi šypsojosi
 `;
 const VERBS={};
 VERB_TXT.split(";").forEach(x=>{const f=x.trim().split(/\s+/); if(f.length===3) VERBS[f[0]]={inf:f[0],pres:f[1],past:f[2]};});
@@ -617,7 +715,7 @@ const TOPICS = {
    <tr><td>10–20, 30, 40…</td><td>kilmininkas l.mn.</td><td>dešimt eurų, vienuolika metų</td></tr></table>
    <p>Rodzaj: <b>du, trys</b> (m.) – <b>dvi, trys</b> (ż.): <i>du obuoliai, dvi knygos</i>.</p>
    <p>Rzeczowniki tylko w l.mn. (<i>metai, durys</i>): <i>vieneri, dveji, treji metai</i> → <i>gyvenu čia dvejus metus</i>.</p>`},
-  part:{name:"Imiesłowy (B1+)", short:"<b>-damas/-dama</b>: robiąc (ten sam podmiot) – <b>Grįždamas sutikau…</b>; <b>-antis</b>: biegnący; <b>-tas</b>: napisany; <b>-ęs/-usi</b>: zmęczony/zmęczona.",
+  part:{name:"Imiesłowy", short:"<b>-damas/-dama</b>: robiąc (ten sam podmiot) – <b>Grįždamas sutikau…</b>; <b>-antis</b>: biegnący; <b>-tas</b>: napisany; <b>-ęs/-usi</b>: zmęczony/zmęczona.",
    sheet:`<table><tr><th>Forma</th><th>Znaczenie</th><th>Przykład</th></tr>
    <tr><td><b>-damas / -dama</b></td><td>robiąc (ten sam podmiot)</td><td><i>Grįždamas namo sutikau kaimyną.</i></td></tr>
    <tr><td><b>-antis / -anti, -intis</b></td><td>robiący</td><td><i>bėgantis šuo, kalbanti moteris</i></td></tr>
@@ -651,7 +749,37 @@ const TOPICS = {
    sheet:`<p><b>savo</b> = swój, swoja, swoje – nie odmienia się.</p>
    <p><i>Ona aplankė <b>savo</b> seserį.</i> – Ona odwiedziła swoją siostrę.<br>
    <i>Ona aplankė <b>jos</b> seserį.</i> – Ona odwiedziła siostrę (innej kobiety).</p>
-   <p>Tak jak po polsku: „swój”, gdy należy do podmiotu.</p>`}
+   <p>Tak jak po polsku: „swój”, gdy należy do podmiotu.</p>`},
+  pass:{name:"Strona bierna (B2)", short:"<b>būti + -tas/-ta</b> (zrobiony: <b>pastatytas</b>) albo <b>-mas/-ma</b> (robiony: <b>statomas</b>). Wykonawca w kilmininkas <u>bez przyimka</u>: <b>parašytas mano sesers</b>.",
+   sheet:`<table><tr><th>Imiesłów</th><th>Znaczenie</th><th>Przykład</th></tr>
+   <tr><td><b>-tas / -ta</b> (przeszły)</td><td>czynność zakończona</td><td><i>Namas buvo pastatytas 1930 m.</i></td></tr>
+   <tr><td><b>-mas / -ma</b> (teraźniejszy)</td><td>dzieje się / regularnie</td><td><i>Namas dabar statomas.</i></td></tr></table>
+   <p>Imiesłów zgadza się z podmiotem: <i>knyga išversta</i>, <i>laiškas parašytas</i>, <i>namai pastatyti</i>.</p>
+   <p>Kto to zrobił? → <b>kilmininkas bez przyimka</b>: <i>Laiškas parašytas <b>mano sesers</b></i> (przez moją siostrę). Nigdy „nuo”!</p>
+   <p>Bez podmiotu (po <i>daug, mažai</i>) – forma nijaka <b>-ma / -ta</b>: <i>Kasmet sodinama daug medžių.</i></p>`},
+  kadcond:{name:"„Żeby” – kad + tryb przypuszczający (B2)", short:"<b>kad + -čiau/-tum/-tų</b> = żeby: <b>Noriu, kad ateitum.</b> <b>Atėjau, kad padėčiau.</b> Ale <b>kad + zwykły czas</b> = że: <i>Žinau, kad ateisi.</i>",
+   sheet:`<p>Polskie <b>żeby / aby</b> = <b>kad</b> + tryb przypuszczający:</p>
+   <table><tr><td>życzenie</td><td><i>Noriu, kad tu <b>ateitum</b>.</i> – Chcę, żebyś przyszedł.</td></tr>
+   <tr><td>prośba</td><td><i>Mama prašo, kad <b>sutvarkytume</b> kambarį.</i></td></tr>
+   <tr><td>cel</td><td><i>Atėjau, kad <b>padėčiau</b>.</i> = <i>Atėjau padėti.</i></td></tr>
+   <tr><td>ważne, żeby</td><td><i>Svarbu, kad visi <b>žinotų</b>.</i></td></tr></table>
+   <p>Porównaj: <i>Sakau, kad jis <b>ateis</b></i> (mówię, że przyjdzie) ↔ <i>Sakau, kad jis <b>ateitų</b></i> (mówię, żeby przyszedł).</p>`},
+  padal:{name:"Padalyvis i pusdalyvis (B2)", short:"<b>-damas/-dama</b> – ten sam podmiot (<b>Skaitydama geriu arbatą</b>). <b>-ant / -us</b> – inny podmiot w celowniku: <b>Saulei tekant</b>, <b>Man grįžus</b>.",
+   sheet:`<table><tr><th>Forma</th><th>Kiedy</th><th>Przykład</th></tr>
+   <tr><td><b>pusdalyvis -damas, -dama</b></td><td>ten sam podmiot, równocześnie</td><td><i>Skaitydama ji geria arbatą.</i></td></tr>
+   <tr><td><b>padalyvis -ant</b></td><td>inny podmiot, równocześnie</td><td><i>Saulei tekant išėjome.</i></td></tr>
+   <tr><td><b>padalyvis -us / -ius</b></td><td>inny podmiot, wcześniej</td><td><i>Man grįžus prasidėjo audra.</i></td></tr></table>
+   <p>Podmiot przy padalyvis stoi w <b>naudininkas</b>: <i>saulei, man, lietui</i> (<i>Lyjant lietui…</i>).</p>
+   <p>Zwrotne: <i>šypsotis → šypsodamasis / šypsodamasi</i>.</p>`},
+  kur:{name:"„Kuris” w zdaniach względnych (B2)", short:"<b>kuris/kuri</b> odmienia się – przypadek zależy od zdania względnego: <b>namas, kuriame gyvenu</b>; <b>draugė, kuriai padovanojau</b>; <b>moteris, kurios vyras…</b>",
+   sheet:`<table><tr><th></th><th>m.</th><th>ż.</th><th>przykład</th></tr>
+   <tr><td>V</td><td>kuris</td><td>kuri</td><td>žmogus, kuris dirba</td></tr>
+   <tr><td>K</td><td>kurio</td><td>kurios</td><td>moteris, <b>kurios</b> vyras…</td></tr>
+   <tr><td>N</td><td>kuriam</td><td>kuriai</td><td>draugė, <b>kuriai</b> padovanojau</td></tr>
+   <tr><td>G</td><td>kurį</td><td>kurią</td><td>filmas, <b>kurį</b> žiūrėjome</td></tr>
+   <tr><td>Į</td><td>kuriuo</td><td>kuria</td><td>žmogus, <b>kuriuo</b> pasitikiu</td></tr>
+   <tr><td>Vt</td><td>kuriame</td><td>kurioje</td><td>namas, <b>kuriame</b> gyvenu</td></tr></table>
+   <p>Zadaj pytanie w zdaniu względnym: <i>gyvenu <u>kur?</u></i> → kuriame; <i>pasitikiu <u>kuo?</u></i> → kuriuo.</p>`}
 };
 
 /* [temat, poziom, zdanie z ___, podpowiedź, odpowiedzi (|), błędne opcje (|), tłumaczenie] */
@@ -659,89 +787,113 @@ const GRAM_RAW = [
  ["kilm",1,"Šiandien aš neturiu ___.","laikas","laiko","laiką|laikas|laikui","Dziś nie mam czasu."],
  ["kilm",1,"Parduotuvėje nebuvo ___.","duona","duonos","duoną|duona|duonai","W sklepie nie było chleba."],
  ["kilm",1,"Nupirkau kilogramą ___.","obuoliai","obuolių","obuolius|obuoliais|obuoliuose","Kupiłam kilogram jabłek."],
- ["kilm",2,"Kambaryje yra dešimt ___.","kėdė","kėdžių","kėdės|kėdes|kėdėmis","W pokoju jest dziesięć krzeseł."],
+ ["kilm",1,"Kambaryje yra dešimt ___.","kėdė","kėdžių","kėdės|kėdes|kėdėmis","W pokoju jest dziesięć krzeseł."],
  ["kilm",1,"Prie ___ auga didelis medis.","namas","namo","namą|namui|name","Przy domu rośnie duże drzewo."],
- ["kilm",2,"Stotelėje laukiu ___.","traukinys","traukinio","traukinį|traukinys|traukiniu","Na przystanku czekam na pociąg."],
+ ["kilm",1,"Stotelėje laukiu ___.","traukinys","traukinio","traukinį|traukinys|traukiniu","Na przystanku czekam na pociąg."],
  ["kilm",1,"Man reikia tavo ___.","pagalba","pagalbos","pagalbą|pagalba|pagalbai","Potrzebuję twojej pomocy."],
- ["kilm",2,"Mano anūkas bijo ___.","šunys","šunų","šunis|šunims|šunys","Mój wnuk boi się psów."],
+ ["kilm",1,"Mano anūkas bijo ___.","šunys","šunų","šunis|šunims|šunys","Mój wnuk boi się psów."],
  ["gal",1,"Vakar perskaičiau įdomią ___.","knyga","knygą","knygos|knyga|knygoje","Wczoraj przeczytałam ciekawą książkę."],
  ["gal",1,"Rytoj aplankysiu savo ___.","močiutė","močiutę","močiutės|močiutei|močiutė","Jutro odwiedzę swoją babcię."],
- ["gal",2,"Visą ___ lijo.","savaitė","savaitę","savaitės|savaitėje|savaitė","Cały tydzień padało."],
+ ["gal",1,"Visą ___ lijo.","savaitė","savaitę","savaitės|savaitėje|savaitė","Cały tydzień padało."],
  ["gal",1,"Einu į ___.","parduotuvė","parduotuvę","parduotuvėje|parduotuvės|parduotuvė","Idę do sklepu."],
- ["gal",2,"Pro ___ matau ežerą.","langas","langą","lango|lange|langu","Przez okno widzę jezioro."],
+ ["gal",1,"Pro ___ matau ežerą.","langas","langą","lango|lange|langu","Przez okno widzę jezioro."],
  ["gal",1,"Man skauda ___.","galva","galvą","galva|galvos|galvai","Boli mnie głowa."],
  ["naud",1,"Padovanojau ___ gėlių.","mama","mamai","mamą|mamos|mama","Podarowałam mamie kwiaty."],
  ["naud",1,"___ patinka ši daina.","aš","Man","Mane|Manęs|Aš","Podoba mi się ta piosenka."],
- ["naud",2,"___ reikia naujo kompiuterio.","brolis","Broliui","Brolį|Brolio|Brolis","Bratu potrzebny jest nowy komputer."],
+ ["naud",1,"___ reikia naujo kompiuterio.","brolis","Broliui","Brolį|Brolio|Brolis","Bratu potrzebny jest nowy komputer."],
  ["naud",1,"Kiek ___ metų?","tu","tau","tu|tave|tavęs","Ile masz lat?"],
- ["naud",2,"Vakare paskambinsiu ___.","draugas","draugui","draugą|draugo|draugu","Wieczorem zadzwonię do przyjaciela."],
+ ["naud",1,"Vakare paskambinsiu ___.","draugas","draugui","draugą|draugo|draugu","Wieczorem zadzwonię do przyjaciela."],
  ["inag",1,"Į darbą važiuoju ___.","autobusas","autobusu","autobusą|autobuse|autobuso","Do pracy jeżdżę autobusem."],
- ["inag",2,"Mano vyras dirba ___.","mokytojas","mokytoju","mokytojas|mokytoją|mokytojui","Mój mąż pracuje jako nauczyciel."],
+ ["inag",1,"Mano vyras dirba ___.","mokytojas","mokytoju","mokytojas|mokytoją|mokytojui","Mój mąż pracuje jako nauczyciel."],
  ["inag",1,"Kavą geriu su ___.","pienas","pienu","pieną|pieno|pienas","Kawę piję z mlekiem."],
- ["inag",2,"Aš domiuosi ___.","menas","menu","meną|meno|mene","Interesuję się sztuką."],
+ ["inag",1,"Aš domiuosi ___.","menas","menu","meną|meno|mene","Interesuję się sztuką."],
  ["inag",1,"Rašau ___.","pieštukas","pieštuku","pieštuką|pieštuko|pieštuke","Piszę ołówkiem."],
  ["viet",1,"Aš gyvenu ___.","Vilnius","Vilniuje","Vilniaus|Vilnių|Vilnius","Mieszkam w Wilnie."],
  ["viet",1,"Knygos yra ___.","lentyna","lentynoje","lentyną|lentynos|lentyna","Książki są na półce."],
  ["viet",1,"Vasarą ilsėjomės ___.","kaimas","kaime","kaimą|kaimo|kaimu","Latem odpoczywaliśmy na wsi."],
- ["viet",2,"Vaikai žaidžia ___.","kiemas","kieme","kiemą|kiemo|kiemu","Dzieci bawią się na podwórku."],
+ ["viet",1,"Vaikai žaidžia ___.","kiemas","kieme","kiemą|kiemo|kiemu","Dzieci bawią się na podwórku."],
  ["viet",1,"Nusipirkau vaistų ___.","vaistinė","vaistinėje","vaistinę|vaistinės|vaistine","Kupiłam lekarstwa w aptece."],
  ["past",1,"Vakar aš ___ į kiną.","eiti","ėjau","einu|eisiu|eidavau","Wczoraj poszłam do kina."],
  ["past",1,"Praėjusią savaitę mes ___ Kaune.","būti","buvome|buvom","esame|būsime|buvo","W zeszłym tygodniu byliśmy w Kownie."],
  ["past",1,"Ar tu ___ tą filmą?","matyti","matei","matai|matysi|mačiau","Czy widziałaś ten film?"],
- ["past",2,"Jie ___ vėlai vakare.","atvažiuoti","atvažiavo","atvažiuoja|atvažiuos|atvažiavau","Przyjechali późno wieczorem."],
+ ["past",1,"Jie ___ vėlai vakare.","atvažiuoti","atvažiavo","atvažiuoja|atvažiuos|atvažiavau","Przyjechali późno wieczorem."],
  ["past",1,"Ką tu ___ pusryčiams?","valgyti","valgei","valgai|valgysi|valgiau","Co jadłaś na śniadanie?"],
- ["past",2,"Aš ___ laišką iš sesers.","gauti","gavau","gaunu|gausiu|gavo","Dostałam list od siostry."],
- ["dazn",2,"Vaikystėje aš dažnai ___ kieme.","žaisti","žaisdavau","žaidžiu|žaisiu|žaisdavo","W dzieciństwie często bawiłam się na podwórku."],
- ["dazn",2,"Kiekvieną vasarą mes ___ prie jūros.","važiuoti","važiuodavome|važiuodavom","važiuojame|važiuosime|važiuodavo","Każdego lata jeździliśmy nad morze."],
- ["dazn",2,"Senelis vakarais ___ laikraštį.","skaityti","skaitydavo","skaito|skaitys|skaitydavau","Dziadek wieczorami czytywał gazetę."],
+ ["past",1,"Aš ___ laišką iš sesers.","gauti","gavau","gaunu|gausiu|gavo","Dostałam list od siostry."],
+ ["dazn",1,"Vaikystėje aš dažnai ___ kieme.","žaisti","žaisdavau","žaidžiu|žaisiu|žaisdavo","W dzieciństwie często bawiłam się na podwórku."],
+ ["dazn",1,"Kiekvieną vasarą mes ___ prie jūros.","važiuoti","važiuodavome|važiuodavom","važiuojame|važiuosime|važiuodavo","Każdego lata jeździliśmy nad morze."],
+ ["dazn",1,"Senelis vakarais ___ laikraštį.","skaityti","skaitydavo","skaito|skaitys|skaitydavau","Dziadek wieczorami czytywał gazetę."],
  ["fut",1,"Rytoj aš ___ namuose.","dirbti","dirbsiu","dirbu|dirbau|dirbs","Jutro będę pracować w domu."],
  ["fut",1,"Kitą savaitę mes ___ į Rygą.","važiuoti","važiuosime|važiuosim","važiuojame|važiavome|važiuos","W przyszłym tygodniu pojedziemy do Rygi."],
  ["fut",1,"Ar tu ___ į mano gimtadienį?","ateiti","ateisi","ateini|atėjai|ateis","Czy przyjdziesz na moje urodziny?"],
- ["fut",2,"Jie ___ namie po pietų.","būti","bus","būs|yra|buvo","Będą w domu po obiedzie."],
+ ["fut",1,"Jie ___ namie po pietų.","būti","bus","būs|yra|buvo","Będą w domu po obiedzie."],
  ["fut",1,"Aš tau ___ vakare.","paskambinti","paskambinsiu","paskambinu|paskambinau|paskambins","Zadzwonię do ciebie wieczorem."],
- ["cond",2,"Jei turėčiau laiko, ___ daugiau.","skaityti","skaityčiau","skaitysiu|skaitau|skaitytų","Gdybym miała czas, czytałabym więcej."],
- ["cond",2,"Ar ___ man padėti?","galėti, tu","galėtum|galėtumei","gali|galėsi|galėtų","Czy mógłbyś mi pomóc?"],
- ["cond",2,"Mes ___ užsisakyti stalą.","norėti","norėtume|norėtumėme","norime|norėsime|norėtų","Chcielibyśmy zarezerwować stolik."],
- ["cond",3,"Jei būtų šilta, mes ___ maudytis.","eiti","eitume|eitumėme","eisime|einame|eitų","Gdyby było ciepło, poszlibyśmy się kąpać."],
- ["cond",2,"Jis ___ laimingas, jei gautų šį darbą.","būti","būtų","bus|yra|būčiau","Byłby szczęśliwy, gdyby dostał tę pracę."],
+ ["cond",1,"Jei turėčiau laiko, ___ daugiau.","skaityti","skaityčiau","skaitysiu|skaitau|skaitytų","Gdybym miała czas, czytałabym więcej."],
+ ["cond",1,"Ar ___ man padėti?","galėti, tu","galėtum|galėtumei","gali|galėsi|galėtų","Czy mógłbyś mi pomóc?"],
+ ["cond",1,"Mes ___ užsisakyti stalą.","norėti","norėtume|norėtumėme","norime|norėsime|norėtų","Chcielibyśmy zarezerwować stolik."],
+ ["cond",2,"Jei būtų šilta, mes ___ maudytis.","eiti","eitume|eitumėme","eisime|einame|eitų","Gdyby było ciepło, poszlibyśmy się kąpać."],
+ ["cond",1,"Jis ___ laimingas, jei gautų šį darbą.","būti","būtų","bus|yra|būčiau","Byłby szczęśliwy, gdyby dostał tę pracę."],
  ["imp",1,"___, prašom! (do Pani)","atsisėsti, jūs","Atsisėskite","Atsisėsk|Atsisėda|Atsisėsti","Proszę usiąść!"],
  ["imp",1,"___ minutėlę!","palaukti, tu","Palauk","Palaukite|Palaukia|Palaukti","Poczekaj chwilkę!"],
- ["imp",2,"___ kartu!","eiti, mes","Eikime|Eime","Einame|Eisime|Eikite","Chodźmy razem!"],
- ["imp",2,"___ lėčiau, prašau.","kalbėti, jūs","Kalbėkite","Kalbate|Kalbėk|Kalbėsite","Proszę mówić wolniej."],
+ ["imp",1,"___ kartu!","eiti, mes","Eikime|Eime","Einame|Eisime|Eikite","Chodźmy razem!"],
+ ["imp",1,"___ lėčiau, prašau.","kalbėti, jūs","Kalbėkite","Kalbate|Kalbėk|Kalbėsite","Proszę mówić wolniej."],
  ["refl",1,"Kasdien ___ septintą valandą.","keltis, aš","keliuosi","keliu|keliasi|kelsiu","Codziennie wstaję o siódmej."],
- ["refl",2,"Ar tu ___ sportu?","domėtis","domiesi","domi|domisi|domiuosi","Czy interesujesz się sportem?"],
- ["refl",2,"Vaikai ___ sniegu.","džiaugtis","džiaugiasi","džiaugia|džiaugiuosi|džiaugiamės","Dzieci cieszą się śniegiem."],
+ ["refl",1,"Ar tu ___ sportu?","domėtis","domiesi","domi|domisi|domiuosi","Czy interesujesz się sportem?"],
+ ["refl",1,"Vaikai ___ sniegu.","džiaugtis","džiaugiasi","džiaugia|džiaugiuosi|džiaugiamės","Dzieci cieszą się śniegiem."],
  ["refl",1,"Šiandien aš ___ gerai.","jaustis","jaučiuosi","jaučiu|jaučiasi|jaustis","Dziś czuję się dobrze."],
- ["refl",2,"Rytoj mes ___ prie kavinės.","susitikti","susitiksime|susitiksim","susitikome|susitinkate|susitiks","Jutro spotkamy się przy kawiarni."],
- ["refl",3,"Ji greitai ___ ir išėjo.","apsirengti","apsirengė","aprengė|apsirengia|apsirengs","Szybko się ubrała i wyszła."],
+ ["refl",1,"Rytoj mes ___ prie kavinės.","susitikti","susitiksime|susitiksim","susitikome|susitinkate|susitiks","Jutro spotkamy się przy kawiarni."],
+ ["refl",2,"Ji greitai ___ ir išėjo.","apsirengti","apsirengė","aprengė|apsirengia|apsirengs","Szybko się ubrała i wyszła."],
  ["comp",1,"Vilnius yra ___ už Kauną.","didelis","didesnis","didžiausias|didelis|didesnė","Wilno jest większe od Kowna."],
- ["comp",2,"Šiandien ___ negu vakar.","šalta","šalčiau","šaltesnis|šalčiausiai|šalta","Dziś jest zimniej niż wczoraj."],
- ["comp",2,"Tai ___ vieta Lietuvoje.","gražus","gražiausia","gražiausias|gražesnė|graži","To najpiękniejsze miejsce na Litwie."],
+ ["comp",1,"Šiandien ___ negu vakar.","šalta","šalčiau","šaltesnis|šalčiausiai|šalta","Dziś jest zimniej niż wczoraj."],
+ ["comp",1,"Tai ___ vieta Lietuvoje.","gražus","gražiausia","gražiausias|gražesnė|graži","To najpiękniejsze miejsce na Litwie."],
  ["comp",1,"Mano brolis yra ___ už mane.","jaunas","jaunesnis","jauniausias|jaunas|jaunesnė","Mój brat jest młodszy ode mnie."],
- ["comp",3,"Iš visų vaikų Tomas bėga ___.","greitai","greičiausiai","greičiau|greitas|greičiausias","Ze wszystkich dzieci Tomas biega najszybciej."],
+ ["comp",2,"Iš visų vaikų Tomas bėga ___.","greitai","greičiausiai","greičiau|greitas|greičiausias","Ze wszystkich dzieci Tomas biega najszybciej."],
  ["num",1,"Kambaryje yra trys ___.","langas","langai","langų|langus|langas","W pokoju są trzy okna."],
- ["num",2,"Tai kainuoja dvidešimt ___.","euras","eurų","eurai|eurus|euras","To kosztuje dwadzieścia euro."],
- ["num",2,"Turiu du ___.","brolis","brolius","brolių|broliai|brolis","Mam dwóch braci."],
- ["num",2,"Ji turi dvi ___.","sesuo","seseris","seserų|seserys|sesuo","Ona ma dwie siostry."],
- ["num",3,"Mes čia gyvename jau dvejus ___.","metai","metus","metų|metai|metais","Mieszkamy tu już dwa lata."],
- ["part",3,"___ namo, sutikau kaimyną.","grįžti","Grįždamas|Grįždama","Grįžęs|Grįžtantis|Grįžta","Wracając do domu, spotkałam sąsiada."],
- ["part",3,"Mačiau ___ šunį.","bėgti","bėgantį","bėgantis|bėgdamas|bėga","Widziałam biegnącego psa."],
- ["part",3,"Laiškas jau ___.","parašyti","parašytas","parašęs|rašantis|parašo","List jest już napisany."],
- ["part",2,"Ji grįžo labai ___.","pavargti","pavargusi","pavargęs|pavargus|pavargsta","Wróciła bardzo zmęczona."],
+ ["num",1,"Tai kainuoja dvidešimt ___.","euras","eurų","eurai|eurus|euras","To kosztuje dwadzieścia euro."],
+ ["num",1,"Turiu du ___.","brolis","brolius","brolių|broliai|brolis","Mam dwóch braci."],
+ ["num",1,"Ji turi dvi ___.","sesuo","seseris","seserų|seserys|sesuo","Ona ma dwie siostry."],
+ ["num",2,"Mes čia gyvename jau dvejus ___.","metai","metus","metų|metai|metais","Mieszkamy tu już dwa lata."],
+ ["part",2,"___ namo, sutikau kaimyną.","grįžti","Grįždamas|Grįždama","Grįžęs|Grįžtantis|Grįžta","Wracając do domu, spotkałam sąsiada."],
+ ["part",2,"Mačiau ___ šunį.","bėgti","bėgantį","bėgantis|bėgdamas|bėga","Widziałam biegnącego psa."],
+ ["part",2,"Laiškas jau ___.","parašyti","parašytas","parašęs|rašantis|parašo","List jest już napisany."],
+ ["part",1,"Ji grįžo labai ___.","pavargti","pavargusi","pavargęs|pavargus|pavargsta","Wróciła bardzo zmęczona."],
  ["prep",1,"Rytoj eisiu ___ gydytoją.","przyimek","pas","į|prie|ant","Jutro pójdę do lekarza."],
  ["prep",1,"Knyga guli ___ stalo.","przyimek","ant","po|į|su","Książka leży na stole."],
- ["prep",2,"Katė miega ___ lova.","przyimek","po","ant|į|prie","Kot śpi pod łóżkiem."],
+ ["prep",1,"Katė miega ___ lova.","przyimek","po","ant|į|prie","Kot śpi pod łóżkiem."],
  ["prep",1,"Grįžau ___ darbo vėlai.","przyimek","iš","į|pas|su","Wróciłam z pracy późno."],
  ["prep",1,"Vasarą važiuosime ___ jūros.","przyimek","prie","į|pas|ant","Latem pojedziemy nad morze."],
- ["prep",2,"Gyvenu ___ miesto centro.","przyimek","netoli","į|per|apie","Mieszkam niedaleko centrum miasta."],
+ ["prep",1,"Gyvenu ___ miesto centro.","przyimek","netoli","į|per|apie","Mieszkam niedaleko centrum miasta."],
  ["conj",1,"Neišėjau į lauką, ___ lijo.","spójnik","nes","todėl|nors|kad","Nie wyszłam na dwór, bo padało."],
- ["conj",2,"___ buvo šalta, vaikai žaidė lauke.","spójnik","Nors","Nes|Todėl|Ar","Chociaż było zimno, dzieci bawiły się na dworze."],
+ ["conj",1,"___ buvo šalta, vaikai žaidė lauke.","spójnik","Nors","Nes|Todėl|Ar","Chociaż było zimno, dzieci bawiły się na dworze."],
  ["conj",1,"Buvau pavargusi, ___ anksti atsiguliau.","spójnik","todėl","nes|nors|ar","Byłam zmęczona, dlatego wcześnie się położyłam."],
- ["conj",2,"Nežinau, ___ jis ateis.","spójnik","ar","kad|jei|nes","Nie wiem, czy on przyjdzie."],
+ ["conj",1,"Nežinau, ___ jis ateis.","spójnik","ar","kad|jei|nes","Nie wiem, czy on przyjdzie."],
  ["conj",1,"Jis pasakė, ___ vėluos.","spójnik","kad","ar|nes|nors","Powiedział, że się spóźni."],
- ["savo",2,"Jonas myli ___ žmoną.","swoją","savo","jo|jos|mano","Jonas kocha swoją żonę."],
- ["savo",2,"Ona aplankė ___ seserį.","swoją","savo","jos|jo|ją","Ona odwiedziła swoją siostrę."],
- ["savo",2,"Vaikai žaidžia su ___ šunimi.","swoim","savo","jų|jo|juos","Dzieci bawią się ze swoim psem."]
+ ["savo",1,"Jonas myli ___ žmoną.","swoją","savo","jo|jos|mano","Jonas kocha swoją żonę."],
+ ["savo",1,"Ona aplankė ___ seserį.","swoją","savo","jos|jo|ją","Ona odwiedziła swoją siostrę."],
+ ["savo",1,"Vaikai žaidžia su ___ šunimi.","swoim","savo","jų|jo|juos","Dzieci bawią się ze swoim psem."],
+ ["pass",2,"Šis namas buvo ___ prieš šimtą metų.","pastatyti","pastatytas","pastatęs|statantis|pastatė","Ten dom został zbudowany sto lat temu."],
+ ["pass",2,"Ši knyga ___ į daugelį kalbų.","išversti","išversta","išverstas|išvertė|verčianti","Ta książka została przetłumaczona na wiele języków."],
+ ["pass",2,"Sutartis jau ___.","pasirašyti","pasirašyta","pasirašytas|pasirašė|pasirašiusi","Umowa jest już podpisana."],
+ ["pass",3,"Kasmet čia ___ daug medžių.","sodinti","sodinama","sodinami|sodino|sodinantis","Co roku sadzi się tu dużo drzew."],
+ ["pass",3,"Laiškas buvo parašytas mano ___.","sesuo","sesers","seserimi|seseriai|sesuo","List został napisany przez moją siostrę."],
+ ["kadcond",2,"Noriu, kad tu ___ anksčiau.","ateiti","ateitum|ateitumei","ateisi|ateini|ateitų","Chcę, żebyś przyszedł wcześniej."],
+ ["kadcond",2,"Mama prašo, kad vaikai ___ kambarį.","sutvarkyti","sutvarkytų","sutvarkys|sutvarko|sutvarkė","Mama prosi, żeby dzieci posprzątały pokój."],
+ ["kadcond",2,"Paskambinau, kad ___ tave su gimtadieniu.","pasveikinti, aš","pasveikinčiau","pasveikinau|pasveikinsiu|pasveikintų","Zadzwoniłam, żeby złożyć ci życzenia urodzinowe."],
+ ["kadcond",2,"Svarbu, kad visi ___ taisykles.","žinoti","žinotų","žino|žinos|žinojo","Ważne, żeby wszyscy znali zasady."],
+ ["kadcond",3,"Kalbėk garsiau, kad visi ___.","girdėti","girdėtų","girdi|girdės|girdėjo","Mów głośniej, żeby wszyscy słyszeli."],
+ ["padal",2,"___ ji visada geria arbatą.","skaityti (ji)","Skaitydama","Skaitant|Skaitė|Skaitanti","Czytając, ona zawsze pije herbatę."],
+ ["padal",3,"Saulei ___, išėjome į kelionę.","tekėti","tekant","tekėdama|teka|tekėjo","Gdy wschodziło słońce, wyruszyliśmy w podróż."],
+ ["padal",3,"Man ___ namo, prasidėjo audra.","grįžti","grįžus","grįždamas|grįžta|grįžęs","Kiedy wróciłam do domu, zaczęła się burza."],
+ ["padal",3,"___ lietui, vaikai žaidė viduje.","lyti","Lyjant","Lijo|Lydamas|Lyja","Kiedy padał deszcz, dzieci bawiły się w środku."],
+ ["padal",3,"Jis kalbėjo ___.","šypsotis","šypsodamasis","šypsantis|šypsosi|šypsojosi","Mówił, uśmiechając się."],
+ ["kur",2,"Namas, ___ gyvenu, yra labai senas.","kuris","kuriame","kuris|kurį|kurio","Dom, w którym mieszkam, jest bardzo stary."],
+ ["kur",2,"Filmas, ___ vakar žiūrėjome, buvo nuobodus.","kuris","kurį","kuris|kuriame|kurio","Film, który wczoraj oglądaliśmy, był nudny."],
+ ["kur",2,"Draugė, ___ padovanojau knygą, labai apsidžiaugė.","kuri","kuriai","kuri|kurią|kurios","Przyjaciółka, której podarowałam książkę, bardzo się ucieszyła."],
+ ["kur",3,"Moteris, ___ vyras dirba banke, yra mano kaimynė.","kuri","kurios","kuri|kurią|kuriai","Kobieta, której mąż pracuje w banku, jest moją sąsiadką."],
+ ["kur",3,"Tai žmogus, ___ aš visiškai pasitikiu.","kuris","kuriuo","kuris|kurį|kuriam","To człowiek, któremu całkowicie ufam."],
+ ["comp",2,"Kuo daugiau skaitai, ___ geriau supranti.","spójnik","tuo","kuo|tai|tada","Im więcej czytasz, tym lepiej rozumiesz."],
+ ["conj",2,"___ blogo oro, išėjome pasivaikščioti.","przyimek","Nepaisant","Nors|Nes|Dėl","Pomimo złej pogody poszliśmy na spacer."],
+ ["conj",2,"Jis ne tik protingas, ___ ir darbštus.","spójnik","bet","o|nei|todėl","Jest nie tylko mądry, ale i pracowity."],
+ ["cond",3,"Jei būčiau žinojusi, ___ anksčiau.","ateiti (aš, ż.)","būčiau atėjusi","atėjau|ateisiu|ateičiau","Gdybym była wiedziała, przyszłabym wcześniej."]
 ];
 
 /* [poziom, temat, zdanie z błędem, poprawne (|), inna błędna wersja, tłumaczenie, wyjaśnienie] */
@@ -750,40 +902,58 @@ const SENT_RAW = [
  [1,"past","Vakar aš einu į parduotuvę.","Vakar aš ėjau į parduotuvę.|Vakar ėjau į parduotuvę.","Vakar aš eisiu į parduotuvę.","Wczoraj poszłam do sklepu.","„Vakar” = przeszłość → <b>ėjau</b>."],
  [1,"naud","Man patinka šitą knygą.","Man patinka šita knyga.|Man patinka ši knyga.","Aš patinka šita knyga.","Podoba mi się ta książka.","Przy <i>patikti</i> rzecz, która się podoba, jest w mianowniku (jak po polsku: ta książka mi się podoba)."],
  [1,"viet","Aš gyvenu Vilniaus.","Aš gyvenu Vilniuje.|Gyvenu Vilniuje.","Aš gyvenu Vilnius.","Mieszkam w Wilnie.","Gdzie? → vietininkas: <b>Vilniuje</b> (bez przyimka)."],
- [2,"savo","Jonas myli jo žmoną.","Jonas myli savo žmoną.","Jonas myli jos žmoną.","Jonas kocha swoją żonę.","Gdy żona należy do podmiotu (Jonas) → <b>savo</b>."],
+ [1,"savo","Jonas myli jo žmoną.","Jonas myli savo žmoną.","Jonas myli jos žmoną.","Jonas kocha swoją żonę.","Gdy żona należy do podmiotu (Jonas) → <b>savo</b>."],
  [1,"num","Turiu dešimt knygos.","Turiu dešimt knygų.","Turiu dešimt knygas.","Mam dziesięć książek.","Po 10–20 → kilmininkas l.mn.: <b>knygų</b>."],
  [1,"inag","Aš važiuoju į darbą su autobusu.","Aš važiuoju į darbą autobusu.|Važiuoju į darbą autobusu.","Aš važiuoju į darbą autobuse.","Jeżdżę do pracy autobusem.","Środek transportu: sam įnagininkas, <b>bez „su”</b>."],
- [2,"inag","Jis dirba kaip gydytojas.","Jis dirba gydytoju.","Jis dirba gydytojas.","On pracuje jako lekarz.","Zawód po <i>dirbti</i> → įnagininkas: <b>dirba gydytoju</b>."],
+ [1,"inag","Jis dirba kaip gydytojas.","Jis dirba gydytoju.","Jis dirba gydytojas.","On pracuje jako lekarz.","Zawód po <i>dirbti</i> → įnagininkas: <b>dirba gydytoju</b>."],
  [1,"fut","Rytoj aš buvau namie.","Rytoj aš būsiu namie.|Rytoj būsiu namie.","Rytoj aš esu buvęs namie.","Jutro będę w domu.","„Rytoj” = przyszłość → <b>būsiu</b>."],
  [1,"kilm","Aš laukiu autobusą.","Aš laukiu autobuso.|Laukiu autobuso.","Aš laukiu autobusu.","Czekam na autobus.","<i>Laukti</i> wymaga kilmininkas: <b>laukiu autobuso</b>."],
- [2,"kilm","Aš bijau šunis.","Aš bijau šunų.|Bijau šunų.","Aš bijau šunims.","Boję się psów.","<i>Bijoti</i> + kilmininkas: <b>šunų</b> (jak po polsku: boję się psów)."],
+ [1,"kilm","Aš bijau šunis.","Aš bijau šunų.|Bijau šunų.","Aš bijau šunims.","Boję się psów.","<i>Bijoti</i> + kilmininkas: <b>šunų</b> (jak po polsku: boję się psów)."],
  [1,"naud","Kiek tu metai?","Kiek tau metų?","Kiek tu metų?","Ile masz lat?","Wiek: naudininkas + kilmininkas: <b>Kiek tau metų?</b>"],
  [1,"refl","Aš keliu septintą valandą.","Aš keliuosi septintą valandą.|Keliuosi septintą valandą.","Aš keliasi septintą valandą.","Wstaję o siódmej.","Wstawać = <i>keltis</i> (zwrotny): <b>keliuosi</b>."],
- [2,"cond","Jeigu aš turėsiu pinigų, nupirkčiau namą.","Jeigu aš turėčiau pinigų, nupirkčiau namą.|Jeigu turėčiau pinigų, nupirkčiau namą.|Jei turėčiau pinigų, nupirkčiau namą.","Jeigu aš turiu pinigų, nupirkčiau namą.","Gdybym miała pieniądze, kupiłabym dom.","W obu częściach zdania tryb przypuszczający: <b>turėčiau … nupirkčiau</b>."],
- [2,"fut","Mes susitikome prie kavinės rytoj.","Mes susitiksime prie kavinės rytoj.|Rytoj mes susitiksime prie kavinės.|Susitiksime prie kavinės rytoj.","Mes susitikdavome prie kavinės rytoj.","Spotkamy się jutro przy kawiarni.","„Rytoj” → czas przyszły: <b>susitiksime</b>."],
+ [1,"cond","Jeigu aš turėsiu pinigų, nupirkčiau namą.","Jeigu aš turėčiau pinigų, nupirkčiau namą.|Jeigu turėčiau pinigų, nupirkčiau namą.|Jei turėčiau pinigų, nupirkčiau namą.","Jeigu aš turiu pinigų, nupirkčiau namą.","Gdybym miała pieniądze, kupiłabym dom.","W obu częściach zdania tryb przypuszczający: <b>turėčiau … nupirkčiau</b>."],
+ [1,"fut","Mes susitikome prie kavinės rytoj.","Mes susitiksime prie kavinės rytoj.|Rytoj mes susitiksime prie kavinės.|Susitiksime prie kavinės rytoj.","Mes susitikdavome prie kavinės rytoj.","Spotkamy się jutro przy kawiarni.","„Rytoj” → czas przyszły: <b>susitiksime</b>."],
  [1,"prep","Aš einu pas parduotuvę.","Aš einu į parduotuvę.|Einu į parduotuvę.","Aš einu ant parduotuvės.","Idę do sklepu.","Do miejsca → <b>į</b>; <i>pas</i> tylko do osoby."],
  [1,"prep","Aš einu į gydytoją.","Aš einu pas gydytoją.|Einu pas gydytoją.","Aš einu prie gydytoją.","Idę do lekarza.","Do osoby → <b>pas</b> + galininkas."],
- [2,"comp","Šiandien yra šaltesnis negu vakar.","Šiandien šalčiau negu vakar.|Šiandien yra šalčiau negu vakar.|Šiandien šalčiau nei vakar.|Šiandien yra šalčiau nei vakar.","Šiandien šalčiausia negu vakar.","Dziś jest zimniej niż wczoraj.","O pogodzie mówimy przysłówkiem: <b>šalta → šalčiau</b>."],
- [2,"num","Ji nupirko dvi obuolius.","Ji nupirko du obuolius.","Ji nupirko du obuoliai.","Kupiła dwa jabłka.","<i>Obuolys</i> jest rodzaju męskiego → <b>du</b> (dvi – tylko żeński)."],
- [2,"dazn","Vaikystėje aš dažnai žaisiu kieme.","Vaikystėje aš dažnai žaisdavau kieme.|Vaikystėje dažnai žaisdavau kieme.|Vaikystėje aš dažnai žaidžiau kieme.","Vaikystėje aš dažnai žaidžiu kieme.","W dzieciństwie często bawiłam się na podwórku.","Powtarzana czynność w przeszłości → <b>žaisdavau</b> (czas przeszły wielokrotny)."],
+ [1,"comp","Šiandien yra šaltesnis negu vakar.","Šiandien šalčiau negu vakar.|Šiandien yra šalčiau negu vakar.|Šiandien šalčiau nei vakar.|Šiandien yra šalčiau nei vakar.","Šiandien šalčiausia negu vakar.","Dziś jest zimniej niż wczoraj.","O pogodzie mówimy przysłówkiem: <b>šalta → šalčiau</b>."],
+ [1,"num","Ji nupirko dvi obuolius.","Ji nupirko du obuolius.","Ji nupirko du obuoliai.","Kupiła dwa jabłka.","<i>Obuolys</i> jest rodzaju męskiego → <b>du</b> (dvi – tylko żeński)."],
+ [1,"dazn","Vaikystėje aš dažnai žaisiu kieme.","Vaikystėje aš dažnai žaisdavau kieme.|Vaikystėje dažnai žaisdavau kieme.|Vaikystėje aš dažnai žaidžiau kieme.","Vaikystėje aš dažnai žaidžiu kieme.","W dzieciństwie często bawiłam się na podwórku.","Powtarzana czynność w przeszłości → <b>žaisdavau</b> (czas przeszły wielokrotny)."],
  [1,"imp","Ponia Ona, atsisėsk, prašau.","Ponia Ona, atsisėskite, prašau.","Ponia Ona, atsisėdame, prašau.","Pani Ono, proszę usiąść.","Do Pani/Pana używamy formy <b>jūs</b>: <b>atsisėskite</b>."],
- [2,"refl","Aš domiuosi su muzika.","Aš domiuosi muzika.|Domiuosi muzika.","Aš domiuosi muziką.","Interesuję się muzyką.","<i>Domėtis</i> + sam įnagininkas, <b>bez „su”</b>."],
+ [1,"refl","Aš domiuosi su muzika.","Aš domiuosi muzika.|Domiuosi muzika.","Aš domiuosi muziką.","Interesuję się muzyką.","<i>Domėtis</i> + sam įnagininkas, <b>bez „su”</b>."],
  [1,"savo","Mano mama yra gydytoja ir jis dirba ligoninėje.","Mano mama yra gydytoja ir ji dirba ligoninėje.","Mano mama yra gydytoja ir jie dirba ligoninėje.","Moja mama jest lekarką i pracuje w szpitalu.","Mama → ona = <b>ji</b>."],
- [2,"cond","Ar galėtum man padėtum?","Ar galėtum man padėti?","Ar galėtumėme man padėti?","Czy mógłbyś mi pomóc?","Po <i>galėti</i> drugi czasownik w bezokoliczniku: <b>padėti</b>."],
- [2,"viet","Mes gyvename šitoje name.","Mes gyvename šitame name.|Mes gyvename šiame name.","Mes gyvename šita name.","Mieszkamy w tym domu.","<i>Namas</i> jest rodzaju męskiego → <b>šitame name</b>."],
+ [1,"cond","Ar galėtum man padėtum?","Ar galėtum man padėti?","Ar galėtumėme man padėti?","Czy mógłbyś mi pomóc?","Po <i>galėti</i> drugi czasownik w bezokoliczniku: <b>padėti</b>."],
+ [1,"viet","Mes gyvename šitoje name.","Mes gyvename šitame name.|Mes gyvename šiame name.","Mes gyvename šita name.","Mieszkamy w tym domu.","<i>Namas</i> jest rodzaju męskiego → <b>šitame name</b>."],
  [1,"kilm","Kambaryje nėra kėdė.","Kambaryje nėra kėdės.","Kambaryje nėra kėdę.","W pokoju nie ma krzesła.","<i>Nėra</i> + kilmininkas: <b>kėdės</b>."],
- [2,"part","Ji grįžo namo pavargęs.","Ji grįžo namo pavargusi.","Ji grįžo namo pavargus.","Wróciła do domu zmęczona.","Kobieta → forma żeńska: <b>pavargusi</b>."],
+ [1,"part","Ji grįžo namo pavargęs.","Ji grįžo namo pavargusi.","Ji grįžo namo pavargus.","Wróciła do domu zmęczona.","Kobieta → forma żeńska: <b>pavargusi</b>."],
  [1,"naud","Aš paskambinau mamą.","Aš paskambinau mamai.|Paskambinau mamai.","Aš paskambinau pas mamą.","Zadzwoniłam do mamy.","<i>Skambinti</i> + naudininkas: <b>mamai</b> (dzwonić komu)."],
  [1,"kilm","Aš nemėgstu kavą.","Aš nemėgstu kavos.|Nemėgstu kavos.","Aš nemėgstu kava.","Nie lubię kawy.","Po przeczeniu → kilmininkas: <b>kavos</b>."],
- [2,"refl","Aš mokausi lietuvių kalbą jau dvejus metus.","Aš mokausi lietuvių kalbos jau dvejus metus.|Mokausi lietuvių kalbos jau dvejus metus.|Lietuvių kalbos mokausi jau dvejus metus.","Aš mokausi lietuvių kalba jau dvejus metus.","Uczę się litewskiego już dwa lata.","<i>Mokytis</i> + kilmininkas: <b>lietuvių kalbos</b> (jak: uczę się języka)."],
+ [1,"refl","Aš mokausi lietuvių kalbą jau dvejus metus.","Aš mokausi lietuvių kalbos jau dvejus metus.|Mokausi lietuvių kalbos jau dvejus metus.|Lietuvių kalbos mokausi jau dvejus metus.","Aš mokausi lietuvių kalba jau dvejus metus.","Uczę się litewskiego już dwa lata.","<i>Mokytis</i> + kilmininkas: <b>lietuvių kalbos</b> (jak: uczę się języka)."],
  [1,"naud","Aš turiu šešiasdešimt metų.","Man šešiasdešimt metų.|Man yra šešiasdešimt metų.","Mane šešiasdešimt metų.","Mam sześćdziesiąt lat.","Wiek wyrażamy naudininkiem: <b>Man … metų</b>, nie „aš turiu”."],
  [1,"kilm","Man reikia naujas paltas.","Man reikia naujo palto.","Man reikia naują paltą.","Potrzebuję nowego płaszcza.","<i>Reikėti</i> + kilmininkas: <b>naujo palto</b>."],
  [1,"prep","Važiuosime prie jūra.","Važiuosime prie jūros.","Važiuosime prie jūrą.","Pojedziemy nad morze.","<i>Prie</i> + kilmininkas: <b>jūros</b>."],
- [2,"conj","Nežinau, kad jis ateis.","Nežinau, ar jis ateis.","Nežinau, jei jis ateis.","Nie wiem, czy on przyjdzie.","„Czy” w zdaniu zależnym = <b>ar</b>."],
- [3,"gal","Mes kalbame apie mūsų atostogų.","Mes kalbame apie savo atostogas.|Mes kalbame apie mūsų atostogas.|Kalbame apie savo atostogas.","Mes kalbame apie mūsų atostogose.","Rozmawiamy o naszym urlopie.","<i>Apie</i> + galininkas: <b>atostogas</b> (najlepiej: apie <b>savo</b> atostogas)."],
- [3,"part","Grįžęs namo, ji išgėrė arbatos.","Grįžusi namo, ji išgėrė arbatos.","Grįžtant namo, ji išgėrė arbatos.","Po powrocie do domu wypiła herbatę.","Podmiot żeński → <b>grįžusi</b>."],
- [3,"comp","Šis kelias yra ilgiausias už tą.","Šis kelias yra ilgesnis už tą.|Šis kelias ilgesnis už tą.","Šis kelias yra ilgas už tą.","Ta droga jest dłuższa od tamtej.","Porównanie dwóch rzeczy → stopień wyższy: <b>ilgesnis</b>."],
- [3,"num","Jis gyvena Lietuvoje du metus.","Jis gyvena Lietuvoje dvejus metus.","Jis gyvena Lietuvoje dvi metus.","Mieszka na Litwie od dwóch lat.","<i>Metai</i> ma tylko l.mn. → liczebnik zbiorowy: <b>dvejus metus</b>."]
+ [1,"conj","Nežinau, kad jis ateis.","Nežinau, ar jis ateis.","Nežinau, jei jis ateis.","Nie wiem, czy on przyjdzie.","„Czy” w zdaniu zależnym = <b>ar</b>."],
+ [2,"gal","Mes kalbame apie mūsų atostogų.","Mes kalbame apie savo atostogas.|Mes kalbame apie mūsų atostogas.|Kalbame apie savo atostogas.","Mes kalbame apie mūsų atostogose.","Rozmawiamy o naszym urlopie.","<i>Apie</i> + galininkas: <b>atostogas</b> (najlepiej: apie <b>savo</b> atostogas)."],
+ [2,"part","Grįžęs namo, ji išgėrė arbatos.","Grįžusi namo, ji išgėrė arbatos.","Grįžtant namo, ji išgėrė arbatos.","Po powrocie do domu wypiła herbatę.","Podmiot żeński → <b>grįžusi</b>."],
+ [2,"comp","Šis kelias yra ilgiausias už tą.","Šis kelias yra ilgesnis už tą.|Šis kelias ilgesnis už tą.","Šis kelias yra ilgas už tą.","Ta droga jest dłuższa od tamtej.","Porównanie dwóch rzeczy → stopień wyższy: <b>ilgesnis</b>."],
+ [2,"num","Jis gyvena Lietuvoje du metus.","Jis gyvena Lietuvoje dvejus metus.","Jis gyvena Lietuvoje dvi metus.","Mieszka na Litwie od dwóch lat.","<i>Metai</i> ma tylko l.mn. → liczebnik zbiorowy: <b>dvejus metus</b>."],
+ [2,"pass","Namas buvo pastatęs prieš šimtą metų.","Namas buvo pastatytas prieš šimtą metų.","Namas buvo statantis prieš šimtą metų.","Dom został zbudowany sto lat temu.","Strona bierna: imiesłów bierny <b>pastatytas</b> (nie czynny „pastatęs”)."],
+ [3,"pass","Laiškas buvo parašytas nuo mano sesers.","Laiškas buvo parašytas mano sesers.","Laiškas buvo parašytas mano seseriai.","List został napisany przez moją siostrę.","Wykonawca w stronie biernej: sam kilmininkas, <b>bez przyimka</b>."],
+ [3,"pass","Kasmet čia sodinami daug medžių.","Kasmet čia sodinama daug medžių.","Kasmet čia sodinamas daug medžių.","Co roku sadzi się tu dużo drzew.","Po <i>daug</i> imiesłów w formie nijakiej: <b>sodinama</b>."],
+ [2,"kadcond","Noriu, kad tu ateisi rytoj.","Noriu, kad tu ateitum rytoj.|Noriu, kad rytoj ateitum.|Noriu, kad ateitum rytoj.","Noriu, kad tu ateini rytoj.","Chcę, żebyś przyszedł jutro.","„Żeby” = <b>kad + tryb przypuszczający</b>: ateitum."],
+ [2,"kadcond","Mama prašė, kad aš nupirksiu duonos.","Mama prašė, kad nupirkčiau duonos.|Mama prašė, kad aš nupirkčiau duonos.","Mama prašė, kad aš nupirkau duonos.","Mama prosiła, żebym kupiła chleb.","Prośba → <b>kad + -čiau</b>: nupirkčiau."],
+ [3,"kadcond","Atėjau, kad padėjau tau.","Atėjau, kad padėčiau tau.|Atėjau, kad tau padėčiau.|Atėjau tau padėti.","Atėjau, kad padėsiu tau.","Przyszłam, żeby ci pomóc.","Cel („żeby”) → <b>kad padėčiau</b> albo bezokolicznik: atėjau padėti."],
+ [3,"padal","Saulė tekant, mes išėjome.","Saulei tekant, mes išėjome.|Saulei tekant, išėjome.","Saulę tekant, mes išėjome.","Gdy wschodziło słońce, wyszliśmy.","Podmiot przy padalyvis stoi w <b>naudininkas</b>: Saulei tekant."],
+ [3,"padal","Grįždama namo, man paskambino draugė.","Man grįžtant namo, paskambino draugė.|Kai grįžau namo, paskambino draugė.","Grįždamas namo, man paskambino draugė.","Kiedy wracałam do domu, zadzwoniła przyjaciółka.","<i>-dama</i> tylko przy tym samym podmiocie. Tu dzwoni przyjaciółka → <b>Man grįžtant</b>."],
+ [2,"kur","Tai namas, kuris aš gyvenu.","Tai namas, kuriame aš gyvenu.|Tai namas, kuriame gyvenu.","Tai namas, kurį aš gyvenu.","To dom, w którym mieszkam.","Gdzie? → <b>kuriame</b> (vietininkas)."],
+ [2,"kur","Moteris, kuri vyras dirba banke, yra mano kaimynė.","Moteris, kurios vyras dirba banke, yra mano kaimynė.","Moteris, kuriai vyras dirba banke, yra mano kaimynė.","Kobieta, której mąż pracuje w banku, jest moją sąsiadką.","„Której” (czyj?) → kilmininkas: <b>kurios</b>."],
+ [3,"kur","Žmogus, kurį aš pasitikiu, yra mano brolis.","Žmogus, kuriuo aš pasitikiu, yra mano brolis.|Žmogus, kuriuo pasitikiu, yra mano brolis.","Žmogus, kuriam aš pasitikiu, yra mano brolis.","Człowiek, któremu ufam, to mój brat.","<i>Pasitikėti</i> + įnagininkas → <b>kuriuo</b>."],
+ [2,"refl","Aš pasitikiu tave.","Aš pasitikiu tavimi.|Pasitikiu tavimi.","Aš pasitikiu tau.","Ufam ci.","<i>Pasitikėti</i> + įnagininkas: <b>tavimi</b>."],
+ [2,"refl","Aš nusivyliau jo.","Aš nusivyliau juo.|Nusivyliau juo.","Aš nusivyliau jam.","Rozczarowałam się nim.","<i>Nusivilti</i> + įnagininkas: <b>juo</b>."],
+ [2,"conj","Nepaisant blogas oras, išėjome.","Nepaisant blogo oro, išėjome.","Nepaisant blogam orui, išėjome.","Pomimo złej pogody wyszliśmy.","<i>Nepaisant</i> + kilmininkas: <b>blogo oro</b>."],
+ [2,"conj","Jis ne tik protingas, ir darbštus.","Jis ne tik protingas, bet ir darbštus.","Jis ne tik protingas, o ir darbštus.","On jest nie tylko mądry, ale i pracowity.","„Nie tylko…, ale i…” = <b>ne tik…, bet ir…</b>."],
+ [2,"comp","Kuo daugiau skaitau, tai geriau suprantu.","Kuo daugiau skaitau, tuo geriau suprantu.","Kuo daugiau skaitau, kuo geriau suprantu.","Im więcej czytam, tym lepiej rozumiem.","„Im…, tym…” = <b>kuo…, tuo…</b>."],
+ [3,"cond","Jei būčiau žinojusi, aš atėjau anksčiau.","Jei būčiau žinojusi, būčiau atėjusi anksčiau.|Jei būčiau žinojusi, aš būčiau atėjusi anksčiau.","Jei būčiau žinojusi, aš ateisiu anksčiau.","Gdybym była wiedziała, przyszłabym wcześniej.","Nierealny warunek w przeszłości: w obu częściach <b>būčiau + imiesłów</b>: būčiau atėjusi."],
+ [2,"part","Perskaičiusią knygą grąžinau į biblioteką.","Perskaitytą knygą grąžinau į biblioteką.","Perskaitančią knygą grąžinau į biblioteką.","Przeczytaną książkę oddałam do biblioteki.","Książka została przeczytana → imiesłów bierny: <b>perskaitytą</b>."]
 ];
 
 /* =====================================================================
@@ -835,7 +1005,7 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(S));storageOK=true;}
 function applyTheme(){const t=S.settings.theme; if(t==="auto") document.documentElement.removeAttribute("data-theme"); else document.documentElement.setAttribute("data-theme",t);}
 applyTheme();
 
-function levelName(l){ if(l<1.5) return "B1 – start"; if(l<2.2) return "B1"; if(l<2.7) return "B1+"; return "B1+ / B2"; }
+function levelName(l){ if(l<1.5) return "B1+ → B2"; if(l<2.2) return "B2"; if(l<2.7) return "B2+"; return "B2+ / C1"; }
 function maxLvl(){ const L=S.level; return L<1.6?1:(L<2.35?2:3); }
 function updateBadge(){ $("#lvlBadge").textContent=levelName(S.level); }
 
@@ -901,11 +1071,12 @@ function pickGrammar(n, onlyTopic){
   let focus=onlyTopic;
   if(!focus){
     const ts=[...new Set((unseen.length?unseen:allowed).map(g=>g.t))];
-    ts.sort((a,b)=>topicScore(b)-topicScore(a)); focus=ts[0];
+    const top=t=>{ const u=unseen.filter(g=>g.t===t); return topicScore(t)+(u.length?0.7*u.filter(g=>g.l===ml).length/u.length:0); };
+    ts.sort((a,b)=>top(b)-top(a)); focus=ts[0];
   }
   const out=[]; const add=g=>{ if(g && !out.includes(g) && out.length<n) out.push(g); };
   due.slice(0,Math.ceil(n/2)).forEach(add);
-  shuffle(unseen.filter(g=>g.t===focus)).forEach(add);
+  shuffle(unseen.filter(g=>g.t===focus)).sort((a,b)=>b.l-a.l).forEach(add);
   shuffle(allowed.filter(g=>g.t===focus)).sort((a,b)=>(S.items[a.id]?.ef||2.5)-(S.items[b.id]?.ef||2.5)).forEach(add);
   due.forEach(add);
   shuffle(unseen).forEach(add);
@@ -916,7 +1087,7 @@ function pickSentences(n){
   const allowed=SENT.filter(s=>s.l<=ml);
   const out=[]; const add=s=>{ if(s && !out.includes(s) && out.length<n) out.push(s); };
   allowed.filter(s=>S.items[s.id]&&S.items[s.id].due<=t).forEach(add);
-  shuffle(allowed.filter(s=>!S.items[s.id])).forEach(add);
+  shuffle(allowed.filter(s=>!S.items[s.id])).sort((a,b)=>b.l-a.l).forEach(add);
   allowed.slice().sort((a,b)=>(S.items[a.id]?.ef||2.5)-(S.items[b.id]?.ef||2.5)).forEach(add);
   return out;
 }
@@ -1215,13 +1386,13 @@ function addNote(text){ if(!text.trim()) return; S.notes.unshift({id:Date.now(),
    EKRANY
    ===================================================================== */
 function renderOnboarding(){
-  let lv=1.6;
+  let lv=1.7;
   $("#view").innerHTML=`<div class="card"><h1>Labas! 👋</h1>
-    <p>Witaj w codziennym treningu litewskiego na poziomie <b>B1</b>. Każdego dnia ok. <b>10 minut</b>: nowe słówka, powtórka gramatyki i poprawianie zdań.</p>
+    <p>Witaj w codziennym treningu litewskiego na poziomie <b>B2</b>. Każdego dnia ok. <b>10 minut</b>: nowe słówka, powtórka gramatyki i poprawianie zdań.</p>
     <p class="muted small">Program sam dopasowuje poziom: gdy idzie świetnie – daje trudniejsze zadania, gdy idzie gorzej – więcej podpowiedzi i powtórek. Wszystko zapisuje się w tej przeglądarce, działa bez internetu i bez żadnych opłat.</p>
     <h3>Jak masz na imię?</h3><input type="text" id="nm" placeholder="np. Halina">
     <h3>Jak oceniasz swój litewski?</h3>
-    <div class="seg" id="seg"><button data-l="1.2">Zaczynam B1</button><button data-l="1.6" class="on">Średnio</button><button data-l="2.3">Całkiem dobrze</button></div>
+    <div class="seg" id="seg"><button data-l="1.2">Po B1</button><button data-l="1.7" class="on">Średnio B2</button><button data-l="2.4">Dobrze B2</button></div>
     <button class="btn-primary btn-big" id="go" style="margin-top:16px">Zaczynamy! →</button></div>`;
   document.querySelectorAll("#seg button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#seg button").forEach(x=>x.classList.remove("on"));b.classList.add("on");lv=+b.dataset.l;});
   $("#go").onclick=()=>{ S.name=$("#nm").value.trim(); S.level=lv; S.onboarded=true; pushLevelHist(); save(); updateBadge(); setTab("home"); };
@@ -1317,7 +1488,7 @@ function renderStats(){
   const h=S.levelHist.slice(-30); let svg="";
   if(h.length>=2){ const W=600,H=140,pad=24; const x=i=>pad+i*(W-2*pad)/(h.length-1), y=l=>H-pad-(l-1)/2*(H-2*pad);
     svg=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Zmiana poziomu">
-      ${[1,2,3].map(l=>`<line x1="${pad}" x2="${W-pad}" y1="${y(l)}" y2="${y(l)}" stroke="var(--line)"/><text x="0" y="${y(l)+3}">${l===1?"B1-":l===2?"B1":"B1+"}</text>`).join("")}
+      ${[1,2,3].map(l=>`<line x1="${pad}" x2="${W-pad}" y1="${y(l)}" y2="${y(l)}" stroke="var(--line)"/><text x="0" y="${y(l)+3}">${l===1?"B1+":l===2?"B2":"B2+"}</text>`).join("")}
       <polyline fill="none" stroke="var(--brand)" stroke-width="3" points="${h.map((p,i)=>x(i)+","+y(p.l)).join(" ")}"/>
       ${h.map((p,i)=>`<circle cx="${x(i)}" cy="${y(p.l)}" r="3.5" fill="var(--brand)"><title>${plDate(p.d)}: ${p.l}</title></circle>`).join("")}</svg>`; }
   const catN={word:"Słówka",gram:"Gramatyka",sent:"Poprawianie zdań"};
